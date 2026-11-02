@@ -102,7 +102,9 @@ json_out <- todo |>
 if (nrow(json_out) > 0) log_step("JSON previews: {sum(pull(json_out, ok))}/{nrow(json_out)} parsed.")
 
 # --- 4. Manifest ------------------------------------------------------------
-done <- bind_rows(office_out, json_out) |> filter(ok) |> pull(key)
+done <- bind_rows(tibble(key = character(), ok = logical()), office_out, json_out) |>
+  filter(ok) |>
+  pull(key)
 new_manifest <- manifest |>
   list_modify(!!!(todo |> filter(key %in% done) |> select(key, sha) |> deframe() |> as.list()))
 write_site_json(new_manifest, manifest_file, pretty = TRUE)
