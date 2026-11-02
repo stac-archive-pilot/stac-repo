@@ -32,7 +32,7 @@ jobs:
       LANG: C.UTF-8
     steps:
       - name: Check out default branch (scripts)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Prepare stats branch worktree
         shell: bash
