@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: aqt-alternative-questions-task
+acronym: AQT
+title: Alternative Questions Task
+section: creativity
+subsection: tasks
+kind: task
+summary: The AQT is a divergent thinking task designed to measure creative question
+  generation. Instead of asking participants to generate alternative uses (as in the
+  traditional AUT), the AQT requires participants to produce creative and unusual
+  questions about everyday objects within a fixed time window. The task is rated for
+  multiple dimensions of creativity, including **fluency** and **originality** as
+  well as **question complexity**. It has been used in recent work examining creative
+  cognition, question-asking, and the structure of semantic memory.
+tags:
+  - humor
+  - divergent-thinking
+  - associative-thinking
+  - motivation
+  - cognition
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: AQT_Task.qsf
+    format: qsf
+    languages: []
+    platform: qualtrics
+    role: instrument
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: |-
+  ### Administration
+  Participants are presented with two or three common objects (sock, pencil, pillow, clock, purse, knife), one at a time. For each object, they are given **two minutes** to generate as many creative and original questions about the object as possible.
+
+  **Core Instructions:**
+  > "The goal is to come up with *creative questions*, which are questions that strike people as clever, unusual, interesting, uncommon, humorous, innovative, or different."
+
+  **Key Parameters:**
+  * **Time Limit:** 2 minutes per object.
+  * **Input:** Participants type questions (up to 30 response fields per object).
+  * **Constraints:** No examples are provided to avoid anchoring.
+
+  ### Scoring
+  Performance is evaluated across three complementary dimensions after removing invalid responses (fragments, non-questions, etc.):
+
+  1.  **Fluency:** Calculated as the average number of valid questions generated across the objects. Higher scores indicate greater ideational productivity.
+  2.  **Originality:** Captures how novel and creative each question is. Scored using **OCSAI**, a fine-tuned large language model trained to approximate human creativity judgments (1 = very unoriginal, 5 = very original)
+  Scoring is done using the CUSTOM setting in OCSAI and this description of task "In this task participants will generate creative questions about common household objects"
+  Also mark "use full question instead of prompt for better results.
+      * *Model Resource:* https://openscoring.streamlit.app/
+  3.  **Complexity:** Reflects the cognitive level elicited by each question based on Bloom’s taxonomy (Remember–Create). Scored using **PrediQT**, a transformer language model trained on human-rated AQT questions
+  Model Resource:* https://huggingface.co/spaces/Tman212/question_complexity_scoring.
+      * *Validation:* The PrediQT model shows strong correspondence with human ratings (r ≈ .73).
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Tasks/AQT -  Alternative Questions Task
+  migrated: '2026-10-22'
+version: 1.0.0
+

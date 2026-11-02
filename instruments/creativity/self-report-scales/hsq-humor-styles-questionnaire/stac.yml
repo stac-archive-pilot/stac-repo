@@ -1,0 +1,97 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: hsq-humor-styles-questionnaire
+acronym: HSQ
+title: Humor Styles Questionnaire
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: The files below contain the original scale developed by Martin et al. (2003).
+  See below for information about short forms.
+tags:
+  - humor
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: HSQ_English.doc
+    format: doc
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Martin, R. A., Puhlik-Doris, P., Larsen, G., Gray, J., & Weir, K. (2003).
+      Individual differences in uses of humor and their relation to psychological
+      well-being: Development of the Humor Styles Questionnaire. Journal of Research
+      in Personality, 37, 48-75.'
+  - path: HSQ_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Martin, R. A., Puhlik-Doris, P., Larsen, G., Gray, J., & Weir, K. (2003).
+      Individual differences in uses of humor and their relation to psychological
+      well-being: Development of the Humor Styles Questionnaire. Journal of Research
+      in Personality, 37, 48-75.'
+  - path: HSQ_English_MediaLab.que
+    format: que
+    languages:
+      - en
+    platform: medialab
+    role: instrument
+    citation: null
+  - path: HSQ_English_Qualtrics.qsf
+    format: qsf
+    languages:
+      - en
+    platform: qualtrics
+    role: instrument
+    citation: null
+references:
+  primary:
+    - 'Martin, R. A., Puhlik-Doris, P., Larsen, G., Gray, J., & Weir, K. (2003). Individual
+      differences in uses of humor and their relation to psychological well-being:
+      Development of the Humor Styles Questionnaire. Journal of Research in Personality,
+      37, 48-75.'
+  further:
+    - Silvia, P. J., & Rodriguez, R. M. (2020). Time to renovate the Humor Styles
+      Questionnaire? An item response theory analysis of the HSQ. Behavioral Sciences,
+      10(11), 173. https://doi.org/10.3390/bs10110173
+    - Altmann, T. (2024). Development and validation of three brief versions of the
+      humor styles questionnaire. Acta Psychologica, 243, 104141. https://doi.org/10.1016/j.actpsy.2024.104141
+dois:
+  - 10.3390/bs10110173
+  - 10.1016/j.actpsy.2024.104141
+administration: |-
+  An extensive psychometric evaluation of the HSQ was reported in this article:
+
+
+
+  Silvia, P. J., & Rodriguez, R. M. (2020). Time to renovate the Humor Styles Questionnaire? An item response theory analysis of the HSQ. Behavioral Sciences, 10(11), 173. https://doi.org/10.3390/bs10110173
+
+
+
+  Altmann developed three HSQ short forms that are worth a look:
+
+
+
+  Altmann, T. (2024). Development and validation of three brief versions of the humor styles questionnaire. Acta Psychologica, 243, 104141. https://doi.org/10.1016/j.actpsy.2024.104141
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 2
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/HSQ – Humor Styles Questionnaire
+  migrated: '2026-10-22'
+version: 1.0.0
+

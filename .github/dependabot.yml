@@ -1,0 +1,35 @@
+# Keeps the GitHub Actions used in .github/workflows/ up to date.
+# Workflows pin actions to major versions (e.g. actions/checkout@v4);
+# Dependabot opens a pull request when a new major version appears.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Vienna"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "type:infrastructure"
+    commit-message:
+      prefix: "ci"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+
+  # Uncomment once worker/package.json exists (Cloudflare Worker dependencies).
+  # - package-ecosystem: "npm"
+  #   directory: "/worker"
+  #   schedule:
+  #     interval: "weekly"
+  #   labels:
+  #     - "dependencies"
+  #     - "type:infrastructure"
+  #   groups:
+  #     worker:
+  #       patterns:
+  #         - "*"

@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: cesd-center-for-epidemiological-studies-depression-scale
+acronym: CESD
+title: Center for Epidemiological Studies Depression Scale
+section: personality-and-individual-differences
+subsection: null
+kind: scale
+summary: null
+tags:
+  - mental-health
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: CESD_English_MediaLab.que
+    format: que
+    languages:
+      - en
+    platform: medialab
+    role: instrument
+    citation: Kashdan, T. B., Gallagher, M. W., Silvia, P. J., Winterstein, B. P.,
+      Breen, W. E., Terhar, D., & Steger, M.F. (2009). The Curiosity and Exploration
+      Inventory-II. Development, factor structure, and psychometrics. Journal of Research
+      in Personality, 43, 987-998.
+references:
+  primary:
+    - Kashdan, T. B., Gallagher, M. W., Silvia, P. J., Winterstein, B. P., Breen,
+      W. E., Terhar, D., & Steger, M.F. (2009). The Curiosity and Exploration Inventory-II.
+      Development, factor structure, and psychometrics. Journal of Research in Personality,
+      43, 987-998.
+  further: []
+dois:
+  - null
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 1
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Personality and Individual Differences/CESD – Center for Epidemiological
+    Studies Depression Scale
+  migrated: '2026-10-22'
+version: 1.0.0
+

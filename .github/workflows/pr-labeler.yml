@@ -1,0 +1,29 @@
+# Labels pull requests by the paths they change (rules in .github/labeler.yml),
+# so curators can filter by section and platform.
+#
+# pull_request_target is required so that pull requests from forks can be
+# labelled. It runs in the context of the base repository; this job never
+# checks out or executes code from the pull request.
+
+name: pr-labeler
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Apply path labels
+        uses: actions/labeler@v5
+        with:
+          configuration-path: .github/labeler.yml
+          sync-labels: false

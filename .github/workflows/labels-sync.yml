@@ -1,0 +1,43 @@
+# Applies governance/labels.yml to the repository.
+#
+# Pull requests that change the file get a dry run (the log shows what would
+# change). On main, labels are created and updated. Labels that are not in
+# the file are kept (delete-other-labels: false), so nothing used on old
+# issues disappears by accident.
+
+name: labels-sync
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "governance/labels.yml"
+      - ".github/workflows/labels-sync.yml"
+  pull_request:
+    paths:
+      - "governance/labels.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Sync labels
+        uses: EndBug/label-sync@v2
+        with:
+          config-file: governance/labels.yml
+          delete-other-labels: false
+          dry-run: ${{ github.event_name == 'pull_request' }}
+          token: ${{ github.token }}

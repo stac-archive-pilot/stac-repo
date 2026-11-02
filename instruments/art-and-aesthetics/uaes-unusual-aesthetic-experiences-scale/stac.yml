@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: uaes-unusual-aesthetic-experiences-scale
+acronym: UAES
+title: Unusual Aesthetic Experiences Scale
+section: art-and-aesthetics
+subsection: null
+kind: scale
+summary: null
+tags:
+  - aesthetics
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: UAES_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Silvia, P. J., & Nusbaum, E. C. (2011). On personality and piloerection:
+      Individual differences in aesthetic chills and other unusual aesthetic experiences.
+      Psychology of Aesthetics, Creativity, and the Arts, 5,208-214'
+  - path: UAES_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Silvia, P. J., & Nusbaum, E. C. (2011). On personality and piloerection:
+      Individual differences in aesthetic chills and other unusual aesthetic experiences.
+      Psychology of Aesthetics, Creativity, and the Arts, 5,208-214'
+  - path: UAES_English_MediaLab.que
+    format: que
+    languages:
+      - en
+    platform: medialab
+    role: instrument
+    citation: null
+  - path: UAES_English_Qualtrics.qsf
+    format: qsf
+    languages:
+      - en
+    platform: qualtrics
+    role: instrument
+    citation: null
+references:
+  primary:
+    - 'Silvia, P. J., & Nusbaum, E. C. (2011). On personality and piloerection: Individual
+      differences in aesthetic chills and other unusual aesthetic experiences. Psychology
+      of Aesthetics, Creativity, and the Arts, 5,208-214'
+  further: []
+dois:
+  - null
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 3
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Art and Aesthetics/UAES – Unusual Aesthetic Experiences Scale
+  migrated: '2026-10-22'
+version: 1.0.0
+

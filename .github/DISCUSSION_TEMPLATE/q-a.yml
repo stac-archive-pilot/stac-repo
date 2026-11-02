@@ -1,0 +1,45 @@
+title: "[Q&A]: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ask anything about choosing, administering, scoring or adapting STAC measures. Other researchers and the curators answer here, and good answers help the next person with the same question.
+
+        When your question is answered, please **mark the answer** so others can find it.
+
+        Not a question but a problem with a file? Please open an [error report](https://github.com/stac-archive/stac/issues/new?template=03-error-report.yml) instead.
+
+  - type: input
+    id: instrument
+    attributes:
+      label: "Instrument(s)"
+      description: "Optional: which measure(s) your question is about."
+      placeholder: "e.g. AUT, DAT"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: topic
+    attributes:
+      label: "Topic"
+      options:
+        - "Choosing a measure"
+        - "Administration"
+        - "Scoring"
+        - "Survey platforms and files"
+        - "Translations and adaptations"
+        - "Licensing and permitted use"
+        - "Using the STAC website or repository"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: "Your question"
+      description: "Give enough context for others to help: your population, design, platform, and what you already tried."
+      placeholder: "e.g. We plan to run the AUT online with a 2-minute limit per object. Is there guidance on scoring responses typed in German with semantic distance?"
+    validations:
+      required: true

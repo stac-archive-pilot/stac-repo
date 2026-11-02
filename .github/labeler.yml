@@ -1,0 +1,47 @@
+# Path-based pull request labels, applied by .github/workflows/pr-labeler.yml
+# (actions/labeler@v5 format). Every label used here must exist in
+# governance/labels.yml.
+
+"section:art-and-aesthetics":
+  - changed-files:
+      - any-glob-to-any-file: "instruments/art-and-aesthetics/**"
+
+"section:creativity":
+  - changed-files:
+      - any-glob-to-any-file: "instruments/creativity/**"
+
+"section:personality-and-individual-differences":
+  - changed-files:
+      - any-glob-to-any-file: "instruments/personality-and-individual-differences/**"
+
+"kind:method":
+  - changed-files:
+      - any-glob-to-any-file: "instruments/creativity/tasks/methods-and-scoring/**"
+
+"platform:qualtrics":
+  - changed-files:
+      - any-glob-to-any-file: "instruments/**/*.qsf"
+
+"platform:medialab":
+  - changed-files:
+      - any-glob-to-any-file: "instruments/**/*.que"
+
+"platform:psychopy":
+  - changed-files:
+      - any-glob-to-any-file: "instruments/**/*.psyexp"
+
+"platform:matlab":
+  - changed-files:
+      - any-glob-to-any-file: ["instruments/**/*.m", "instruments/**/*.mat"]
+
+"platform:limesurvey":
+  - changed-files:
+      - any-glob-to-any-file: ["instruments/**/*.lss", "instruments/**/*.lsg", "instruments/**/*.lsq"]
+
+"type:infrastructure":
+  - changed-files:
+      - any-glob-to-any-file: ["scripts/**", "site/**", "worker/**", ".github/workflows/**", "config/**", "schema/**"]
+
+"type:documentation":
+  - changed-files:
+      - any-glob-to-any-file: ["*.md", "governance/**", "docs/**", "templates/**"]

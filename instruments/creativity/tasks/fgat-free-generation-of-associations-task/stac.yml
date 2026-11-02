@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: fgat-free-generation-of-associations-task
+acronym: FGAT
+title: Free Generation of Associations Task
+section: creativity
+subsection: tasks
+kind: task
+summary: 'The FGAT_Matlab folder contains files and folders related to FGAT, a Free
+  Generation of Associations Task. FGAT is a word association task, previously shown
+  to capture remote thinking. It is composed of two conditions, presented successively,
+  always in the same order. FGAT-first condition After a short training session, participants
+  perform the 62 trials of the first condition block (hereafter referred to as FGAT-first).
+  They are presented with a cue word and instructed to provide the first word that
+  comes to mind after reading the cue word. They have 10 seconds to find a word and
+  press the spacebar. This condition is used to explore the participants’ spontaneous
+  semantic associations. FGAT-distant condition In a different following block, participants
+  are administered 62 trials of the second condition of the task (hereafter referred
+  to as FGAT-distant). On each trial, they are presented with a cue word as in the
+  previous condition and instructed to press the spacebar once they have thought of
+  a word unusually associated with the cue. They are asked to find a distant but understandable
+  associate and to think creatively. They have 20 seconds to think of a word and press
+  the spacebar. This condition is used to assess participants’ ability to intentionally
+  produce remote and creative associations. The material: Both conditions use the
+  same list of 62 cue words, presented randomly across each condition. Cue words are
+  nouns, with a lexical frequency (http://www.lexique.org/) above 15 occurrences per
+  million and a number of syllables lower than four. Half of the cues are considered
+  as steep (with a strongly dominant associate) and the other half flat (more balanced
+  strength with its associates). Cues vary in terms of steepness from 1.03 to 24.07.
+  Contact: emmavolle@gmail.com'
+tags:
+  - associative-thinking
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: FGAT_Matlab.zip
+    format: zip
+    languages: []
+    platform: matlab
+    role: software
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: |-
+  ###Instructions to administer :
+
+  Please see README.txt
+
+  ###Instructions to clean the responses
+  Responses are allowed to be single words (nouns, adjectives or verbs, non-conjugated) avoiding proper nouns and compound words. In each trial, the word given by the participant is automatically searched in a dictionary (http://www.pallier.org/extra/liste.de.mots.francais.frgut.txt) to check for misspelling. If the word is not found in the dictionary at the end of each trial, a window appears on the screen offering the opportunity to retype the word, and the participant can type in the corrected word or choose to keep their first answer (with no time limit). A secondary phase of manual cleaning is needed to clear the answers from plurals, conjugated verbs, non-words, and typos.
+
+  ###Instruction for scoring
+  cf references below
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Tasks/FGAT - Free Generation of Associations Task
+  migrated: '2026-10-22'
+version: 1.0.0
+

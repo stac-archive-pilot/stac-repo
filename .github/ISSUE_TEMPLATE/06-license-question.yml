@@ -1,0 +1,65 @@
+name: "Ask about licensing or permitted use"
+description: "Unsure whether you may use, adapt, translate or republish a measure? Ask here."
+title: "[License]: "
+labels: ["type:license-question", "status:needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Most STAC measures are free to use for **academic and non-commercial purposes** with proper citation. Each instrument page shows its access tier and the licence statement provided by its authors.
+
+        Please note:
+        - Curators answer to the best of their knowledge, but **this is not legal advice**. For commercial or clinical use, the authors or rights holders have the final word.
+        - This issue is public. For questions that involve confidential details (for example a commercial project or a request for restricted materials), use the [private message form](https://stac-archive.github.io/stac/#/board?tab=private) instead.
+
+  - type: input
+    id: instrument
+    attributes:
+      label: "Instrument"
+      description: "Leave empty if your question is about STAC in general."
+      placeholder: "e.g. GMSI (Goldsmiths Musical Sophistication Index)"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: topic
+    attributes:
+      label: "What is your question about?"
+      options:
+        - "Using the measure in an academic study"
+        - "Using the measure in teaching"
+        - "Commercial use"
+        - "Clinical or applied use (for example diagnostics or personnel selection)"
+        - "Translating or adapting the measure"
+        - "Printing items in a publication or thesis"
+        - "Republishing on another platform or repository"
+        - "Meaning of an access tier"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: intended_use
+    attributes:
+      label: "What do you plan to do?"
+      description: "A short description of the intended use helps curators give a useful answer."
+      placeholder: "e.g. We would like to include the 12-item short form in a paid smartphone app that gives users feedback on their musical sophistication."
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: "Your question"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: "Before submitting"
+      options:
+        - label: "I read the licence statement on the instrument page and in its README."
+          required: true
+        - label: "I understand that the answer is not legal advice."
+          required: true

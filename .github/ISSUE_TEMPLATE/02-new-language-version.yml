@@ -1,0 +1,175 @@
+name: "Add a language version"
+description: "Contribute a translation or cultural adaptation of an instrument that is already in STAC."
+title: "[Language version]: <ACRONYM> in <language>"
+labels: ["type:language-version", "intake:language-version", "status:needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Translations are one of the most valuable contributions to STAC: they let labs in other countries use the same measure in the same way.
+
+        - Everything you type or attach here is **public immediately**. Only attach files you are allowed to share openly.
+        - Is the original measure not in STAC yet? Please submit it first with the **Submit a new instrument** form, or mention it in the notes below.
+
+  - type: input
+    id: instrument
+    attributes:
+      label: "Instrument"
+      description: "Acronym and title, or the link to the instrument page on the STAC website."
+      placeholder: "e.g. AFS (Aesthetic Fluency Scale) or https://stac-archive.github.io/stac/#/instrument/afs"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: language
+    attributes:
+      label: "Language of the new version"
+      options:
+        - "English"
+        - "German"
+        - "French"
+        - "Spanish"
+        - "Italian"
+        - "Portuguese"
+        - "Dutch"
+        - "Polish"
+        - "Russian"
+        - "Turkish"
+        - "Farsi"
+        - "Arabic"
+        - "Hebrew"
+        - "Chinese"
+        - "Japanese"
+        - "Korean"
+        - "Other"
+    validations:
+      required: true
+
+  - type: input
+    id: language_detail
+    attributes:
+      label: "Language variety or other language"
+      description: "Name the language if you chose Other, or specify a regional variety."
+      placeholder: "e.g. Brazilian Portuguese; Swiss German; Slovak"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: translation_method
+    attributes:
+      label: "How was the version produced?"
+      options:
+        - "Forward and back translation"
+        - "Committee or team approach (e.g. TRAPD)"
+        - "Single translator with expert review"
+        - "Single translator without review"
+        - "Cultural adaptation with item changes"
+        - "Other (please describe in the notes)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reference
+    attributes:
+      label: "Reference for this language version (APA 7)"
+      description: |
+        The publication that reports this version and its psychometric properties. If the version is not published (yet), say so and describe who produced it and whether any validation data exist. The curators decide case by case.
+      placeholder: "Author, A. A., & Author, B. B. (Year). Title of the validation study. Journal, Volume(Issue), pages. https://doi.org/..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: psychometrics
+    attributes:
+      label: "Psychometric evidence for this version"
+      description: "Optional: sample, reliability, measurement invariance with the original, notable deviations."
+      placeholder: "e.g. N = 412 university students; alpha = .81; configural and metric invariance with the English version"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: formats
+    attributes:
+      label: "File formats and survey platforms"
+      multiple: true
+      options:
+        - "PDF"
+        - "Word or ODT document"
+        - "Excel or CSV"
+        - "Qualtrics (.qsf)"
+        - "MediaLab (.que)"
+        - "PsychoPy"
+        - "MATLAB"
+        - "LimeSurvey"
+        - "SoSci Survey"
+        - "Unipark / Tivian EFS"
+        - "REDCap"
+        - "R or Python scoring code"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: "Files"
+      description: |
+        **Drag and drop your files into this box.** Wait until each upload shows a link before submitting.
+        Put `.qsf`, `.que`, `.lss`, `.psyexp` and code files into a `.zip` first. Max. 25 MB per file.
+        Please name files `ACRONYM_Language[_Platform][_Variant].ext`, for example `AFS_Polish.docx` or `AFS_Polish_Qualtrics.zip`.
+      placeholder: "Drop files here"
+    validations:
+      required: true
+
+  - type: textarea
+    id: administration_changes
+    attributes:
+      label: "Differences in administration or scoring"
+      description: "Anything users of this version must do differently from the original (changed anchors, dropped items, different norms)."
+      placeholder: "e.g. Item 7 was dropped because of poor fit; the 5-point scale anchors were adapted."
+    validations:
+      required: false
+
+  - type: textarea
+    id: contributors
+    attributes:
+      label: "Translators and authors to credit"
+      description: "One line per person: `Name | ORCID | role` (translator, adapter, author). These appear publicly in the metadata."
+      placeholder: |
+        Anna Kowalska | 0000-0000-0000-0000 | translator
+      render: text
+    validations:
+      required: true
+
+  - type: dropdown
+    id: contributor_relationship
+    attributes:
+      label: "Your relationship to this version"
+      options:
+        - "I developed this translation or adaptation"
+        - "I am an author of the original measure"
+        - "I have written permission from the translators to share it"
+        - "Other (please explain in the notes)"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: criteria
+    attributes:
+      label: "Confirmations"
+      options:
+        - label: "I have permission to share this language version openly, and the original authors allow translations of their measure (or are co-authors of this version)."
+          required: true
+        - label: "The version is free to use for academic and non-commercial purposes."
+          required: true
+        - label: "I agree that my name, ORCID and the information in this form are published in the STAC metadata and the public issue history."
+          required: true
+        - label: "I agree to follow the [Code of Conduct](https://github.com/stac-archive/stac/blob/main/CODE_OF_CONDUCT.md)."
+          required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: "Anything else?"
+    validations:
+      required: false

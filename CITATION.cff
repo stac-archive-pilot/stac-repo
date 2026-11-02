@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+message: >-
+  Please cite the original publication of each instrument version you use
+  (listed in the instrument's README.md). To cite STAC as the access point,
+  use the preferred citation below.
+type: dataset
+title: "STAC: Scales and Tasks for Art and Creativity Assessment"
+abstract: >-
+  Curated, open archive of scales and tasks for research on creativity,
+  aesthetics and the arts, plus individual-differences measures commonly used
+  alongside them. Migrated 1:1 from the OSF project 4s9p6.
+authors:
+  - family-names: Benedek
+    given-names: Mathias
+    orcid: "https://orcid.org/0000-0001-6258-4476"
+    affiliation: University of Graz
+  - family-names: Kenett
+    given-names: Yoed N.
+    orcid: "https://orcid.org/0000-0003-3872-7689"
+    affiliation: Technion – Israel Institute of Technology
+  - family-names: Silvia
+    given-names: Paul J.
+    orcid: "https://orcid.org/0000-0003-4597-328X"
+    affiliation: University of North Carolina at Greensboro
+repository-code: "https://github.com/stac-archive/stac"
+url: "https://stac-archive.github.io/stac/"
+identifiers:
+  - type: doi
+    value: 10.17605/OSF.IO/4S9P6
+    description: Legacy OSF project DOI
+keywords: [creativity, aesthetics, arts, assessment, divergent thinking, questionnaires, open materials, psychometrics]
+preferred-citation:
+  type: article
+  title: "Scales and Tasks for Art and Creativity Assessment (STAC)"
+  authors:
+    - family-names: Kenett
+      given-names: Yoed N.
+    - family-names: Silvia
+      given-names: Paul J.
+    - family-names: Benedek
+      given-names: Mathias
+  journal: Psychological Test Adaptation and Development
+  volume: 7
+  start: 239
+  end: 244
+  year: 2026
+  doi: 10.1027/2698-1866/a000140

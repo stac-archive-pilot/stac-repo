@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: polyft-polysemous-associative-fluency-task
+acronym: PolyFT
+title: Polysemous Associative Fluency Task
+section: creativity
+subsection: tasks
+kind: task
+summary: 'The POLYFT_IDGRP folder contains files related to PolyFT. PolyFT is an associative
+  fluency task that uses polysemous words as cues for a free-associative memory search.
+  It enables examination of clustering and switching among different meanings, and
+  investigates how individuals search their memory, alternating between exploration
+  and exploitation, and combining associative and controlled processes. These memory
+  search processes are particularly relevant to idea generation. In the PolyFT task,
+  participants are required to list all the words they can think of associated with
+  a given cue word (i.e., single-word associations) within 1,5 minutes (computerized
+  version). As cue words, we selected ambiguous, polysemous French words with high
+  lexical frequency (> 20 occurrences per million in a large corpus, according to
+  the French lexicon project, http://www.lexique.org/) and at least three distinct
+  meanings, according to the French dictionary (Supplementary Table 1). The list of
+  meanings for each cue was compiled using a French linguistic research resource (Centre
+  National de Ressources Textuelles et Lexicales; https://www.cnrtl.fr/). For each
+  cue word, participants generated words associated with the cue word, without being
+  informed that the words had different meanings. Contact: emmavolle@gmail.com'
+tags:
+  - associative-thinking
+  - curiosity
+  - cognition
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: POLYFT_IDGRP.zip
+    format: zip
+    languages: []
+    platform: null
+    role: software
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: |-
+  Administration: Please include a training on a few new cue-words before starting the experiment
+  You can run the task with or without IDGRP (identification of the switches and clusters by the participants).
+
+  Scoring: In brief, we categorize each produced response as belonging to one of the meanings of each cue word. Using this classification, we identify clustering responses as those that refer to the same meaning as the previous response, and switching responses as those that refer to a different meaning.
+  You can run the task with or without IDGRP (identification of the switches and clusters by the participants).
+  Please note that automated classification will be available soon.
+  Several measures can be computed depending on the research aims. Please see the references below for details
+  Please also see Readme.doc in the POLYFT_IDGRP folder
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Tasks/PolyFT - Polysemous Associative Fluency Task
+  migrated: '2026-10-22'
+version: 1.0.0
+

@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: cps-creative-problem-solving
+acronym: CPS
+title: Creative Problem Solving
+section: creativity
+subsection: tasks
+kind: task
+summary: CPS is an open ended task, where participants are presented with open-ended,
+  ambiguous, real-life problems. They must first identify and describe the dilemma
+  (problem construction) and then propose a solution to it (problem solving).
+tags:
+  - cognition
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: Arreola & Reiter-Palmon, 2016.pdf
+    format: pdf
+    languages: []
+    platform: null
+    role: reference
+    citation: null
+  - path: CPS.qsf
+    format: qsf
+    languages: []
+    platform: qualtrics
+    role: instrument
+    citation: null
+  - path: Luchini et al., 2025.pdf
+    format: pdf
+    languages: []
+    platform: null
+    role: reference
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: 'Administration instructions can be found in the attached papers.
+  Automatic scoring is provided by Luchini et al., 2025 and its implementation can
+  be found at: https://osf.io/hsxza/overview'
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Tasks/CPS - Creative Problem Solving
+  migrated: '2026-10-22'
+version: 1.0.0
+

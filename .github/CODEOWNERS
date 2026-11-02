@@ -1,0 +1,44 @@
+# STAC code owners
+#
+# The LAST matching pattern wins. Code owners are requested automatically as
+# reviewers, and the ruleset governance/rulesets/main-protection.json requires
+# an approving review from a code owner of every changed path before merge.
+#
+# GitHub only honours teams that have at least WRITE access to this repository.
+# Members of a team with Triage access can review, but their approval does not
+# count. See governance/roles-matrix.md for the team set-up.
+#
+# Moderators are co-owners of every section so that a section never gets
+# stuck when its curators are unavailable.
+
+# Fallback: everything not matched below
+*                                                       @stac-archive/moderators
+
+# ------------------------------------------------------------------ content
+/instruments/art-and-aesthetics/                        @stac-archive/aesthetics-curators @stac-archive/moderators
+/instruments/creativity/                                @stac-archive/creativity-curators @stac-archive/moderators
+/instruments/personality-and-individual-differences/    @stac-archive/personality-curators @stac-archive/moderators
+
+# ------------------------------------------------------------------ infrastructure
+/scripts/                                               @stac-archive/infra
+/site/                                                  @stac-archive/infra
+/worker/                                                @stac-archive/infra
+/config/                                                @stac-archive/infra
+/.github/                                               @stac-archive/infra
+
+# ------------------------------------------------------------------ rules of the archive
+# Changes to what counts as a valid entry, who may decide, and who owns what
+# always need a moderator.
+/schema/                                                @stac-archive/moderators
+/governance/                                            @stac-archive/moderators
+/templates/                                             @stac-archive/moderators
+/.github/CODEOWNERS                                     @stac-archive/moderators
+/.github/ISSUE_TEMPLATE/                                @stac-archive/moderators @stac-archive/infra
+/.github/DISCUSSION_TEMPLATE/                           @stac-archive/moderators @stac-archive/infra
+/GOVERNANCE.md                                          @stac-archive/moderators
+/CONTRIBUTING.md                                        @stac-archive/moderators
+/CODE_OF_CONDUCT.md                                     @stac-archive/moderators
+/PRIVACY.md                                             @stac-archive/moderators
+/SECURITY.md                                            @stac-archive/moderators @stac-archive/infra
+/SUPPORT.md                                             @stac-archive/moderators
+/LICENSE*                                               @stac-archive/moderators

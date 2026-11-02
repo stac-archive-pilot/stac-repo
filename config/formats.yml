@@ -1,0 +1,167 @@
+# STAC format registry
+# ---------------------------------------------------------------------------
+# One entry per file extension. Used by scripts/03_build_catalog.R (labels,
+# families, preview strategy) and shipped to the site inside catalog.json.
+#
+# family   : document | spreadsheet | presentation | survey | experiment |
+#            data | code | text | notebook | image | media | archive | other
+# preview  : pdf-native   -> show the file itself in the PDF viewer
+#            pdf-convert  -> LibreOffice converts to PDF at build time
+#            que-items    -> MediaLab .que (MS Access Jet DB) read via mdbtools
+#            qsf-items    -> Qualtrics .qsf (JSON) parsed into an item list
+#            lss-items    -> LimeSurvey XML (.lss/.lsq/.lsg) parsed into items
+#            xml-outline  -> generic XML outline (SoSci Survey, PsychoPy, EFS)
+#            zip-tree     -> archive listing with quality flags
+#            table        -> first rows rendered as a table (csv/tsv)
+#            sheet        -> spreadsheet: PDF conversion plus sheet tables
+#            codebook     -> SPSS/Stata/R data: variables, labels, types (haven)
+#            code         -> syntax highlighted source (fetched by the browser)
+#            markdown     -> rendered markdown
+#            image        -> inline image
+#            media        -> HTML5 audio/video player
+#            none         -> no preview, download only
+# platform : survey or experiment platform the file belongs to (optional).
+#            Platform is also detected from file name tokens, see
+#            platform_tokens below (e.g. "_Qualtrics", "_Unipark").
+# ---------------------------------------------------------------------------
+
+formats:
+  # Documents ---------------------------------------------------------------
+  pdf:   {label: PDF, family: document, preview: pdf-native, mime: application/pdf}
+  docx:  {label: Word, family: document, preview: pdf-convert, mime: application/vnd.openxmlformats-officedocument.wordprocessingml.document}
+  doc:   {label: Word 97-2003, family: document, preview: pdf-convert, mime: application/msword}
+  odt:   {label: LibreOffice Writer, family: document, preview: pdf-convert, mime: application/vnd.oasis.opendocument.text}
+  rtf:   {label: Rich Text, family: document, preview: pdf-convert, mime: application/rtf}
+  pages: {label: Apple Pages, family: document, preview: none, mime: application/x-iwork-pages-sffpages, notes: "Ask contributors for a PDF/DOCX copy."}
+  # Spreadsheets ------------------------------------------------------------
+  xlsx:  {label: Excel, family: spreadsheet, preview: sheet, mime: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet}
+  xls:   {label: Excel 97-2003, family: spreadsheet, preview: sheet, mime: application/vnd.ms-excel}
+  ods:   {label: LibreOffice Calc, family: spreadsheet, preview: sheet, mime: application/vnd.oasis.opendocument.spreadsheet}
+  csv:   {label: CSV, family: data, preview: table, mime: text/csv}
+  tsv:   {label: TSV, family: data, preview: table, mime: text/tab-separated-values}
+  # Presentations -----------------------------------------------------------
+  pptx:  {label: PowerPoint, family: presentation, preview: pdf-convert, mime: application/vnd.openxmlformats-officedocument.presentationml.presentation}
+  ppt:   {label: PowerPoint 97-2003, family: presentation, preview: pdf-convert, mime: application/vnd.ms-powerpoint}
+  odp:   {label: LibreOffice Impress, family: presentation, preview: pdf-convert, mime: application/vnd.oasis.opendocument.presentation}
+  key:   {label: Apple Keynote, family: presentation, preview: none, mime: application/x-iwork-keynote-sffkey}
+  # Survey platforms --------------------------------------------------------
+  qsf:   {label: Qualtrics survey, family: survey, platform: qualtrics, preview: qsf-items, mime: application/json, notes: "Import in Qualtrics: Create project > Survey > From a file."}
+  que:   {label: MediaLab questionnaire, family: survey, platform: medialab, preview: que-items, mime: application/x-msaccess, notes: "MS Access Jet database used by Empirisoft MediaLab."}
+  lss:   {label: LimeSurvey survey, family: survey, platform: limesurvey, preview: lss-items, mime: application/xml, notes: "Import in LimeSurvey: Create survey > Import."}
+  lsq:   {label: LimeSurvey question, family: survey, platform: limesurvey, preview: lss-items, mime: application/xml}
+  lsg:   {label: LimeSurvey question group, family: survey, platform: limesurvey, preview: lss-items, mime: application/xml}
+  lsa:   {label: LimeSurvey survey archive, family: survey, platform: limesurvey, preview: zip-tree, mime: application/zip}
+  xml:   {label: XML, family: text, preview: xml-outline, mime: application/xml, notes: "SoSci Survey and Unipark/Tivian EFS exports are XML; the platform is taken from the file name token."}
+  # Experiment software -----------------------------------------------------
+  psyexp: {label: PsychoPy Builder experiment, family: experiment, platform: psychopy, preview: xml-outline, mime: application/xml}
+  osexp:  {label: OpenSesame experiment, family: experiment, platform: opensesame, preview: none, mime: application/octet-stream}
+  iqx:    {label: Inquisit script, family: experiment, platform: inquisit, preview: code, mime: text/plain}
+  iqjs:   {label: Inquisit Web script, family: experiment, platform: inquisit, preview: code, mime: text/plain}
+  es3:    {label: E-Prime 3 experiment, family: experiment, platform: eprime, preview: none, mime: application/octet-stream}
+  es2:    {label: E-Prime 2 experiment, family: experiment, platform: eprime, preview: none, mime: application/octet-stream}
+  ebs3:   {label: E-Prime 3 compiled script, family: experiment, platform: eprime, preview: none, mime: application/octet-stream}
+  sce:    {label: Presentation scenario, family: experiment, platform: presentation, preview: code, mime: text/plain}
+  pcl:    {label: Presentation PCL, family: experiment, platform: presentation, preview: code, mime: text/plain}
+  psydat: {label: PsychoPy data, family: data, platform: psychopy, preview: none, mime: application/octet-stream}
+  # Statistics data ---------------------------------------------------------
+  sav:      {label: SPSS data, family: data, preview: codebook, mime: application/x-spss-sav}
+  zsav:     {label: SPSS compressed data, family: data, preview: codebook, mime: application/x-spss-sav}
+  por:      {label: SPSS portable, family: data, preview: codebook, mime: application/x-spss-por}
+  dta:      {label: Stata data, family: data, preview: codebook, mime: application/x-stata-dta}
+  sas7bdat: {label: SAS data, family: data, preview: codebook, mime: application/x-sas-data}
+  rds:      {label: R data (RDS), family: data, preview: codebook, mime: application/octet-stream}
+  rdata:    {label: R workspace, family: data, preview: none, mime: application/octet-stream}
+  rda:      {label: R workspace, family: data, preview: none, mime: application/octet-stream}
+  mat:      {label: MATLAB data, family: data, platform: matlab, preview: none, mime: application/octet-stream}
+  json:     {label: JSON, family: data, preview: code, mime: application/json}
+  jasp:     {label: JASP analysis, family: data, preview: none, mime: application/octet-stream}
+  omv:      {label: jamovi analysis, family: data, preview: none, mime: application/octet-stream}
+  # Code and syntax ---------------------------------------------------------
+  r:     {label: R script, family: code, preview: code, mime: text/plain, highlight: r}
+  rmd:   {label: R Markdown, family: notebook, preview: code, mime: text/markdown, highlight: markdown}
+  qmd:   {label: Quarto document, family: notebook, preview: code, mime: text/markdown, highlight: markdown}
+  py:    {label: Python script, family: code, preview: code, mime: text/x-python, highlight: python}
+  ipynb: {label: Jupyter notebook, family: notebook, preview: code, mime: application/x-ipynb+json, highlight: json}
+  do:    {label: Stata do-file, family: code, preview: code, mime: text/plain, highlight: stata}
+  ado:   {label: Stata ado-file, family: code, preview: code, mime: text/plain, highlight: stata}
+  sps:   {label: SPSS syntax, family: code, preview: code, mime: text/plain, highlight: plaintext}
+  sas:   {label: SAS program, family: code, preview: code, mime: text/plain, highlight: sas}
+  m:     {label: MATLAB script, family: code, platform: matlab, preview: code, mime: text/plain, highlight: matlab}
+  fig:   {label: MATLAB figure, family: other, platform: matlab, preview: none, mime: application/octet-stream}
+  inp:   {label: Mplus input, family: code, preview: code, mime: text/plain, highlight: plaintext}
+  js:    {label: JavaScript, family: code, preview: code, mime: text/javascript, highlight: javascript}
+  html:  {label: HTML, family: code, preview: code, mime: text/html, highlight: xml, notes: "jsPsych and lab.js studies are usually HTML/JS bundles."}
+  # Text --------------------------------------------------------------------
+  md:    {label: Markdown, family: text, preview: markdown, mime: text/markdown}
+  txt:   {label: Plain text, family: text, preview: code, mime: text/plain, highlight: plaintext}
+  # Images and media --------------------------------------------------------
+  png:   {label: PNG image, family: image, preview: image, mime: image/png}
+  jpg:   {label: JPEG image, family: image, preview: image, mime: image/jpeg}
+  jpeg:  {label: JPEG image, family: image, preview: image, mime: image/jpeg}
+  gif:   {label: GIF image, family: image, preview: image, mime: image/gif}
+  svg:   {label: SVG image, family: image, preview: image, mime: image/svg+xml}
+  webp:  {label: WebP image, family: image, preview: image, mime: image/webp}
+  mp3:   {label: MP3 audio, family: media, preview: media, mime: audio/mpeg}
+  wav:   {label: WAV audio, family: media, preview: media, mime: audio/wav}
+  mp4:   {label: MP4 video, family: media, preview: media, mime: video/mp4}
+  # Archives ----------------------------------------------------------------
+  zip:   {label: ZIP archive, family: archive, preview: zip-tree, mime: application/zip}
+  7z:    {label: 7-Zip archive, family: archive, preview: none, mime: application/x-7z-compressed}
+  gz:    {label: Gzip archive, family: archive, preview: none, mime: application/gzip}
+
+# Fallback for unknown extensions
+fallback: {label: File, family: other, preview: none, mime: application/octet-stream}
+
+# Platform detection from file name tokens (case-insensitive, matched as a
+# whole token between separators _ - . space). First match wins.
+platform_tokens:
+  qualtrics:  [qualtrics]
+  medialab:   [medialab]
+  psychopy:   [psychopy, pavlovia]
+  matlab:     [matlab, psychtoolbox]
+  limesurvey: [limesurvey]
+  sosci:      [sosci, soscisurvey]
+  unipark:    [unipark, efs, tivian, questback]
+  redcap:     [redcap]
+  prolific:   [prolific]
+  gorilla:    [gorilla]
+  jspsych:    [jspsych]
+  labjs:      [labjs]
+  formr:      [formr]
+  opensesame: [opensesame]
+  inquisit:   [inquisit]
+  eprime:     [eprime]
+
+platform_labels:
+  qualtrics: Qualtrics
+  medialab: MediaLab
+  psychopy: PsychoPy
+  matlab: MATLAB
+  limesurvey: LimeSurvey
+  sosci: SoSci Survey
+  unipark: Unipark / Tivian EFS
+  redcap: REDCap
+  prolific: Prolific
+  gorilla: Gorilla
+  jspsych: jsPsych
+  labjs: lab.js
+  formr: formr
+  opensesame: OpenSesame
+  inquisit: Inquisit
+  eprime: E-Prime
+  presentation: Presentation
+
+family_labels:
+  document: Documents
+  spreadsheet: Spreadsheets
+  presentation: Slides
+  survey: Survey files
+  experiment: Experiment software
+  data: Data
+  code: Code
+  notebook: Notebooks
+  text: Text
+  image: Images
+  media: Audio and video
+  archive: Archives
+  other: Other

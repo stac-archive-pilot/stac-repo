@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: dat-divergent-association-task
+acronym: DAT
+title: Divergent Association Task
+section: creativity
+subsection: tasks
+kind: task
+summary: In the DAT, participants are required to come up with ten words that are
+  unrelated to each other. This short task has been found to correlate with DT.
+tags:
+  - divergent-thinking
+  - associative-thinking
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: DAT.qsf
+    format: qsf
+    languages: []
+    platform: qualtrics
+    role: instrument
+    citation: null
+  - path: Haase et al., 2025.pdf
+    format: pdf
+    languages: []
+    platform: null
+    role: reference
+    citation: null
+  - path: Olson et al., 2021.pdf
+    format: pdf
+    languages: []
+    platform: null
+    role: reference
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: |-
+  Administration can be achieved via the qualtrics file or the online tool: https://www.datcreativity.com/about
+  Scoring can be done based on instruction in Olson et al., 2021 or automatically based on the tool described by Haase et al., 2025
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Tasks/DAT - Divergent Association Task
+  migrated: '2026-10-22'
+version: 1.0.0
+

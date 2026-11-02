@@ -1,0 +1,93 @@
+# Refreshes download counts of the frozen OSF copy (osf.io/4s9p6).
+#
+# The OSF project stays online as the citable legacy record and keeps being
+# downloaded, because the STAC paper links to it. Once a month this job reads
+# the per-file counts from the public OSF API and commits them to the stats
+# branch as data/osf/osf_legacy_downloads.csv; build-deploy.yml picks the file
+# up and the dashboard shows OSF and GitHub figures side by side.
+# No secret is needed (public project, read-only API).
+
+name: osf-legacy-stats
+
+on:
+  schedule:
+    - cron: "41 4 3 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: stats-branch
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    env:
+      STAC_OSF_LEGACY_FILE: ${{ github.workspace }}/_stats/data/osf/osf_legacy_downloads.csv
+      LANG: C.UTF-8
+    steps:
+      - name: Check out default branch (scripts)
+        uses: actions/checkout@v4
+
+      - name: Prepare stats branch worktree
+        shell: bash
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin stats > /dev/null; then
+            git fetch --depth=1 origin stats:refs/remotes/origin/stats
+            git worktree add -B stats _stats origin/stats
+          else
+            echo "::error::The stats branch does not exist yet. Run traffic-archive once first."
+            exit 1
+          fi
+          mkdir -p _stats/data/osf
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+          use-public-rspm: true
+
+      - name: Install R packages
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::dplyr
+            any::purrr
+            any::tidyr
+            any::stringr
+            any::jsonlite
+            any::yaml
+            any::glue
+            any::fs
+            any::readr
+            any::tibble
+            any::httr2
+          cache-version: 1
+
+      - name: Read OSF download counts
+        run: Rscript scripts/05_fetch_stats.R --osf-legacy
+
+      - name: Commit to stats branch
+        shell: bash
+        working-directory: _stats
+        run: |
+          git add data/osf
+          if git diff --cached --quiet; then
+            echo "No change in OSF counts."
+            exit 0
+          fi
+          git commit -qm "OSF legacy download counts $(date -u +%F)"
+          for attempt in 1 2 3; do
+            if git push origin stats; then exit 0; fi
+            git pull --rebase origin stats || true
+            sleep $((attempt * 5))
+          done
+          echo "::error::Could not push to the stats branch."
+          exit 1

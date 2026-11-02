@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="260" viewBox="0 0 1200 260" role="img" aria-label="STAC: Scales and Tasks for Art and Creativity Assessment">
+  <rect width="1200" height="260" fill="#f3f5f8"/>
+  <g fill="none" stroke="#d9dee6"><path d="M0 64H1200M0 196H1200"/></g>
+  <text x="56" y="168" font-family="'Big Shoulders Display','Arial Narrow',sans-serif" font-weight="800" font-size="132" fill="#121a26" letter-spacing="4">ST<tspan fill="#3b32c4">A</tspan>C</text>
+  <text x="380" y="118" font-family="'Atkinson Hyperlegible',Arial,sans-serif" font-size="30" fill="#121a26">Scales and Tasks for Art and Creativity Assessment</text>
+  <text x="380" y="160" font-family="'IBM Plex Mono',monospace" font-size="18" fill="#5f6b7c" letter-spacing="2">OPEN · VERSIONED · CITABLE · SINCE 2013</text>
+  <g transform="translate(1060 72)"><rect width="84" height="116" rx="6" fill="#fff" stroke="#b9c1cd"/><circle cx="66" cy="18" r="7" fill="#f3f5f8" stroke="#b9c1cd" stroke-width="2"/><rect x="14" y="40" width="44" height="10" fill="#eb6834"/><rect x="14" y="60" width="56" height="6" fill="#d9dee6"/><rect x="14" y="74" width="40" height="6" fill="#d9dee6"/><rect x="14" y="92" width="26" height="10" rx="5" fill="#e7e5fb"/></g>
+</svg>

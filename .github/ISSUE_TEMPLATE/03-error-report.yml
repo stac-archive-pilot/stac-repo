@@ -1,0 +1,126 @@
+name: "Report an error"
+description: "Wrong item, wrong scoring key, broken file, wrong citation, a survey file that does not import, or a problem with the website."
+title: "[Error]: "
+labels: ["type:error", "status:needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep STAC accurate. Errors in archived measures can end up in many studies, so every report counts.
+
+        Please check the [open issues](https://github.com/stac-archive/stac/issues?q=is%3Aissue+label%3Atype%3Aerror) first; if the problem is already reported, add a comment or a thumbs-up there.
+        Found a **security problem** with the website or backend? Do not use this form, see [SECURITY.md](https://github.com/stac-archive/stac/blob/main/SECURITY.md).
+
+  - type: input
+    id: instrument
+    attributes:
+      label: "Instrument"
+      description: "Acronym, title or link to the instrument page. Write `website` if the problem concerns the site itself."
+      placeholder: "e.g. AUT (Alternate Uses Task) or https://stac-archive.github.io/stac/#/instrument/aut"
+    validations:
+      required: true
+
+  - type: input
+    id: file
+    attributes:
+      label: "Affected file"
+      description: "File name or path, if the problem concerns a specific file."
+      placeholder: "e.g. instruments/creativity/tasks/aut/AUT_German_Qualtrics.qsf"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: error_type
+    attributes:
+      label: "What kind of problem is it?"
+      options:
+        - "Wrong or missing item text"
+        - "Wrong item order or numbering"
+        - "Wrong response scale or anchors"
+        - "Wrong scoring key or reverse-keyed items"
+        - "Wrong or incomplete instructions"
+        - "Wrong or incomplete citation"
+        - "Translation error"
+        - "File is broken or does not open"
+        - "Survey or experiment file does not import or run"
+        - "Download link or bundle is broken"
+        - "README and files do not match"
+        - "Problem with the website"
+        - "Other"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: "Platform or software"
+      description: "Where did the problem occur?"
+      options:
+        - "Not applicable (PDF or Word or website)"
+        - "Qualtrics"
+        - "MediaLab"
+        - "PsychoPy"
+        - "MATLAB"
+        - "LimeSurvey"
+        - "SoSci Survey"
+        - "Unipark / Tivian EFS"
+        - "REDCap"
+        - "Prolific-related (screeners or redirects or completion codes)"
+        - "R or Python"
+        - "Other"
+    validations:
+      required: true
+
+  - type: input
+    id: platform_version
+    attributes:
+      label: "Software version, browser or operating system"
+      description: "Helps a lot for import problems."
+      placeholder: "e.g. MediaLab v2020 on Windows 11; Qualtrics (current); Firefox 131"
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "What is wrong?"
+      description: "Describe the problem. For import errors, paste the error message. For item errors, quote the item as it appears in the file."
+      placeholder: |
+        Item 12 in the German version reads "Ich bin selten neugierig", but the original publication (Table 2) lists "Ich bin oft neugierig". The item is also not marked as reverse-keyed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "What would be correct?"
+      description: "The correct wording, key or behaviour, if you know it."
+    validations:
+      required: false
+
+  - type: input
+    id: source
+    attributes:
+      label: "Source for the correct version"
+      description: "Publication, page or table that shows the correct version."
+      placeholder: "e.g. https://doi.org/10.xxxx/xxxxx, Table 2, p. 14"
+    validations:
+      required: false
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: "Screenshots or files"
+      description: "Optional: drag and drop screenshots, error logs or a corrected file. Put survey files into a `.zip` first."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: "Before submitting"
+      options:
+        - label: "I searched the existing issues and this problem is not reported yet."
+          required: true
+        - label: "I would be willing to help fix this (for example by checking a corrected file)."
+          required: false

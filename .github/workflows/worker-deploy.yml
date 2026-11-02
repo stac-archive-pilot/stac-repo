@@ -1,0 +1,63 @@
+# Deploys the Cloudflare Worker in worker/ with wrangler.
+#
+# Required secrets (store them in the "cloudflare" environment so that
+# deployment can be limited to main and, if wanted, require approval):
+#   CLOUDFLARE_API_TOKEN   API token with "Workers Scripts: Edit" (plus any
+#                          bindings the worker uses, e.g. R2, KV, D1)
+#   CLOUDFLARE_ACCOUNT_ID  Cloudflare account id
+# Worker runtime secrets (salt, inbox token, mail keys) are set once with
+# "wrangler secret put" and are not handled here.
+
+name: worker-deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "worker/**"
+      - ".github/workflows/worker-deploy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: worker-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: cloudflare
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install worker dependencies
+        shell: bash
+        working-directory: worker
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          elif [ -f package.json ]; then
+            npm install --no-audit --no-fund
+          else
+            echo "No package.json in worker/, skipping npm install."
+          fi
+
+      - name: Deploy with wrangler
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker
+          command: deploy

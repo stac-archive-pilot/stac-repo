@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: aut-alternate-uses-task
+acronym: AUT
+title: Alternate Uses Task
+section: creativity
+subsection: tasks
+kind: task
+summary: null
+tags:
+  - divergent-thinking
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: AUT_Psychopy_Lloyd-Cox.zip
+    format: zip
+    languages: []
+    platform: psychopy
+    role: software
+    citation: null
+  - path: Basic Divergent Thinking Tasks.docx
+    format: docx
+    languages: []
+    platform: null
+    role: instrument
+    citation: null
+  - path: Basic Divergent Thinking Tasks.pdf
+    format: pdf
+    languages: []
+    platform: null
+    role: instrument
+    citation: null
+  - path: DT, Box Task, Latest 2019.que
+    format: que
+    languages: []
+    platform: medialab
+    role: instrument
+    citation: null
+  - path: DT, Brick Task, Latest 2019.que
+    format: que
+    languages: []
+    platform: medialab
+    role: instrument
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 6
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Tasks/AUT – Alternate Uses Task
+  migrated: '2026-10-22'
+version: 1.0.0
+

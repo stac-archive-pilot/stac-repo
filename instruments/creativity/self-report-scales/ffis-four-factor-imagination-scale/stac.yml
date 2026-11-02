@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: ffis-four-factor-imagination-scale
+acronym: FFIS
+title: Four-Factor Imagination Scale
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: Additional self-report measures of imagination are available in STAC.
+tags:
+  - imagery
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: FFIS_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Zabelina, D. L., & Condon, D. C. (2020). The Four-Factor Imagination
+      Scale (FFIS): A measure for assessing frequency, complexity, emotional valence,
+      and directedness of imagination. *Psychological Research, 84*, 2287-2299. https://doi.org/10.1007/s00426-019-01227-w'
+  - path: FFIS_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Zabelina, D. L., & Condon, D. C. (2020). The Four-Factor Imagination
+      Scale (FFIS): A measure for assessing frequency, complexity, emotional valence,
+      and directedness of imagination. *Psychological Research, 84*, 2287-2299. https://doi.org/10.1007/s00426-019-01227-w'
+references:
+  primary:
+    - 'Zabelina, D. L., & Condon, D. C. (2020). The Four-Factor Imagination Scale
+      (FFIS): A measure for assessing frequency, complexity, emotional valence, and
+      directedness of imagination. *Psychological Research, 84*, 2287-2299. https://doi.org/10.1007/s00426-019-01227-w'
+  further: []
+dois:
+  - 10.1007/s00426-019-01227-w
+administration: See the original article for details about administration and scoring.
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/FFIS – Four-Factor Imagination Scale
+  migrated: '2026-10-22'
+version: 1.0.0
+

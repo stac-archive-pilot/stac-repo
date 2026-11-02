@@ -1,0 +1,93 @@
+title: "[Used in research]: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Published or preprinted a study that used a STAC measure? Share it here. Curators may link studies on the instrument page so that others can see how a measure has been used, in which populations and languages, and with which results.
+
+  - type: input
+    id: instruments
+    attributes:
+      label: "Instrument(s) used"
+      placeholder: "e.g. K-DOCS, AFS"
+    validations:
+      required: true
+
+  - type: input
+    id: doi
+    attributes:
+      label: "DOI or link of the study"
+      description: "A DOI is preferred (journal article, preprint, dataset or thesis)."
+      placeholder: "https://doi.org/10.xxxx/xxxxx"
+    validations:
+      required: true
+
+  - type: textarea
+    id: citation
+    attributes:
+      label: "Reference (APA 7)"
+      placeholder: "Author, A. A., & Author, B. B. (2026). Title. Journal, 12(3), 45-67. https://doi.org/10.xxxx/xxxxx"
+    validations:
+      required: true
+
+  - type: input
+    id: language_version
+    attributes:
+      label: "Language version(s) used"
+      placeholder: "e.g. German (STAC file K-DOCS_German.docx)"
+    validations:
+      required: false
+
+  - type: input
+    id: sample
+    attributes:
+      label: "Sample"
+      description: "Size, population, country."
+      placeholder: "e.g. N = 312 adults from a German online panel"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: "How was the measure administered?"
+      options:
+        - "Paper and pencil"
+        - "Qualtrics"
+        - "MediaLab"
+        - "PsychoPy"
+        - "MATLAB"
+        - "LimeSurvey"
+        - "SoSci Survey"
+        - "Unipark / Tivian EFS"
+        - "REDCap"
+        - "Other online platform"
+        - "Other"
+    validations:
+      required: false
+
+  - type: textarea
+    id: findings
+    attributes:
+      label: "Notes for other users"
+      description: "Optional: reliability you found, adaptations you made, lessons learned."
+    validations:
+      required: false
+
+  - type: input
+    id: open_materials
+    attributes:
+      label: "Open data or materials"
+      description: "Optional: link to data, code or materials (OSF, Zenodo, GitHub)."
+      placeholder: "https://osf.io/xxxxx"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: "Listing"
+      options:
+        - label: "STAC may link this study on the instrument page."
+          required: false

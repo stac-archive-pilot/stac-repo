@@ -1,0 +1,39 @@
+title: "[Idea]: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideas for STAC as a whole: new sections, better search, website features, metadata, guidelines for contributors, collaborations. Upvote ideas you like.
+
+        To request a specific measure, please use the [request form](https://github.com/stac-archive/stac/issues/new?template=04-missing-instrument.yml) instead.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: "Area"
+      options:
+        - "Archive content and structure"
+        - "Metadata and documentation"
+        - "Website and search"
+        - "Contribution process"
+        - "Community and governance"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: "Your idea"
+      description: "What would you like to see, and what problem would it solve?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: help
+    attributes:
+      label: "Could you help?"
+      description: "Optional: would you or your lab contribute time, expertise or materials?"
+    validations:
+      required: false

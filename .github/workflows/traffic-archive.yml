@@ -1,0 +1,130 @@
+# Archives GitHub traffic data before it expires.
+#
+# The traffic API only returns the last 14 days of views, clones, referrers
+# and popular paths. This job runs daily and commits a snapshot to the
+# orphan branch "stats" as data/traffic/YYYY-MM-DD.json, so that
+# build-deploy.yml can compute long-term statistics.
+#
+# The traffic API needs a token with admin/push access to the repository,
+# which GITHUB_TOKEN does not have. Required secret:
+#   STATS_TOKEN  fine-grained PAT (or GitHub App token) for this repository
+#                with "Administration: Read-only" permission
+#                (classic PAT: "repo" scope).
+# The snapshot is written by:  Rscript scripts/05_fetch_stats.R --traffic-only
+# with GH_TOKEN, GITHUB_REPOSITORY and STAC_TRAFFIC_DIR set.
+# Committing to the stats branch uses GITHUB_TOKEN (contents: write).
+
+name: traffic-archive
+
+on:
+  schedule:
+    - cron: "23 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: traffic-archive
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    env:
+      STAC_TRAFFIC_DIR: ${{ github.workspace }}/_stats/data/traffic
+    steps:
+      - name: Check that STATS_TOKEN is configured
+        shell: bash
+        env:
+          STATS_TOKEN: ${{ secrets.STATS_TOKEN }}
+        run: |
+          if [ -z "$STATS_TOKEN" ]; then
+            echo "::error::Secret STATS_TOKEN is missing. GITHUB_TOKEN cannot read traffic data; see the header of this workflow."
+            exit 1
+          fi
+
+      - name: Check out default branch (scripts)
+        uses: actions/checkout@v4
+
+      - name: Prepare stats branch worktree
+        shell: bash
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin stats > /dev/null; then
+            git fetch --depth=1 origin stats:refs/remotes/origin/stats
+            git worktree add -B stats _stats origin/stats
+          else
+            echo "::notice::Creating orphan branch 'stats'."
+            git worktree add --detach _stats
+            cd _stats
+            git checkout --orphan stats
+            git rm -rfq . || true
+            git clean -fdxq
+            mkdir -p data/traffic
+            {
+              echo "# STAC statistics archive"
+              echo
+              echo "Daily snapshots of the GitHub traffic API (views, clones, referrers,"
+              echo "popular paths), written by .github/workflows/traffic-archive.yml."
+              echo "Do not merge this branch into main."
+            } > README.md
+            git add README.md
+            git commit -qm "Initialise stats branch"
+          fi
+          mkdir -p "$STAC_TRAFFIC_DIR"
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+          use-public-rspm: true
+
+      - name: Install R packages
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::dplyr
+            any::purrr
+            any::tidyr
+            any::stringr
+            any::jsonlite
+            any::yaml
+            any::glue
+            any::fs
+            any::readr
+            any::tibble
+            any::httr2
+            any::cli
+            any::lubridate
+          cache-version: 1
+
+      - name: Fetch traffic snapshot
+        env:
+          GH_TOKEN: ${{ secrets.STATS_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: Rscript scripts/05_fetch_stats.R --traffic-only
+
+      - name: Commit snapshot to stats branch
+        shell: bash
+        working-directory: _stats
+        run: |
+          git add data/traffic
+          if git diff --cached --quiet; then
+            echo "No new traffic data."
+            exit 0
+          fi
+          git commit -qm "Traffic snapshot $(date -u +%F)"
+          # Retry in case of a concurrent push
+          for attempt in 1 2 3; do
+            if git push origin stats; then exit 0; fi
+            echo "Push failed (attempt $attempt), rebasing on remote stats"
+            git pull --rebase origin stats || true
+            sleep $((attempt * 5))
+          done
+          echo "::error::Could not push to the stats branch."
+          exit 1

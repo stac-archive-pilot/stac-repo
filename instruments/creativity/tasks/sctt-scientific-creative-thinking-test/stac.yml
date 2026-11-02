@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: sctt-scientific-creative-thinking-test
+acronym: SCTT
+title: Scientific creative thinking test
+section: creativity
+subsection: tasks
+kind: task
+summary: The SCTT assesses different aspects of scientific creativity, focusing on
+  generating research questions, hypothesis generation, and research design.
+tags:
+  - scientific-creativity
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: SCTT – template.docx
+    format: docx
+    languages: []
+    platform: null
+    role: template
+    citation: null
+  - path: SCTT.qsf
+    format: qsf
+    languages: []
+    platform: qualtrics
+    role: instrument
+    citation: null
+  - path: SCTTValidation.pdf
+    format: pdf
+    languages: []
+    platform: null
+    role: reference
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: |-
+  Administration and scoring is described in Beaty et al., 2024. Additional information can be found at: https://osf.io/439zs/overview?view_only=4cbda208526948a99afba0050a2c043f
+
+  Automatic scoring of the task is achieved via: https://cap.ist.psu.edu/sctt-ai
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Tasks/SCTT - Scientific creative thinking test
+  migrated: '2026-10-22'
+version: 1.0.0
+

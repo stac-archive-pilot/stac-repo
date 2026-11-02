@@ -1,0 +1,44 @@
+# Site and repository settings (placeholders until the GitHub org exists)
+repo:
+  owner: stac-archive
+  name: stac
+  branch: main
+  pages_url: https://stac-archive.github.io/stac/
+  discussions: true
+
+legacy:
+  osf_project: https://osf.io/4s9p6
+  osf_doi: 10.17605/OSF.IO/4S9P6
+  paper_doi: 10.1027/2698-1866/a000140
+  paper_citation: "Kenett, Y. N., Silvia, P. J., & Benedek, M. (2026). Scales and Tasks for Art and Creativity Assessment (STAC). Psychological Test Adaptation and Development, 7, 239-244. https://doi.org/10.1027/2698-1866/a000140"
+  # Lower bounds reported in the paper ("downloaded over ... times"), early 2026.
+  # Replace with exact per-file counts via scripts/05_fetch_stats.R --osf-legacy.
+  downloads_total_min: 70000
+  downloads_by_acronym_min:
+    K-DOCS: 24000
+    SSCS: 16000
+    CBI: 9000
+    BICB: 8000
+    ICAA: 5000
+    CAQ: 1000
+  source: "Kenett, Silvia & Benedek (2026), section Content"
+
+# Files larger than this are not copied into the Pages site; they are linked
+# to the repository (or the release bundle) instead. GitHub Pages sites must
+# stay below 1 GB in total.
+max_site_file_mb: 50
+
+backend:
+  # Cloudflare Worker (see worker/README.md). Leave empty to run the site in
+  # static mode: counters then show archived GitHub numbers only and messages
+  # fall back to prefilled GitHub issue links.
+  api_base: ""
+  turnstile_site_key: ""
+
+giscus:
+  # Fill in from https://giscus.app after enabling Discussions
+  repo: stac-archive/stac
+  repo_id: ""
+  category: Instrument feedback
+  category_id: ""
+  mapping: specific

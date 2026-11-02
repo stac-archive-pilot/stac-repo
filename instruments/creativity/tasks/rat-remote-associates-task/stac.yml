@@ -1,0 +1,88 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: rat-remote-associates-task
+acronym: RAT
+title: Remote Associates Task
+section: creativity
+subsection: tasks
+kind: task
+summary: null
+tags:
+  - associative-thinking
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: CAT40_French_Matlab_Volle.zip
+    format: zip
+    languages:
+      - fr
+    platform: matlab
+    role: software
+    citation: null
+  - path: RAT_English_Psychopy_Lloyd-Cox.zip
+    format: zip
+    languages:
+      - en
+    platform: psychopy
+    role: software
+    citation: null
+  - path: RAT_English_Qualtrics_Lloyd-Cox.zip
+    format: zip
+    languages:
+      - en
+    platform: qualtrics
+    role: software
+    citation: 'NA ###CAT_French_Matlab_Colle.zip D. Bendetowicz, M. Urbanski, B. Garcin,
+      C. Foulon, R. Levy, M.L. Bréchemier, C. Rosso, M. Thiebaut de Schotten, E. Volle.
+      Two critical brain networks for the generation and combination of remote associates.
+      Brain. 2018. 141(1):217-233. https://doi.org/10.1093/brain/awx294. T. Bieth,
+      M. Ovando Tellez, A. Lopez-Persem, B. Garcin, L. Hugueville, K. Lehongre, R.
+      Levy, N. George*, E. Volle*. Time course of EEG power during problem-solving
+      with insight or remote thinking. Human Brain Mapping. 2024. 45(1):e26547. doi:
+      10.1002/hbm.26547. M. Ovando-Tellez*, YN. Kenett*, M. Benedek, B. Belanger,
+      M. Bernard, E. Volle. Brain connectivity-based prediction of remote associates
+      combination and semantic memory structure. Creativity Research Journal. 2023.
+      35:3, 522-546.'
+references:
+  primary:
+    - 'NA ###CAT_French_Matlab_Colle.zip D. Bendetowicz, M. Urbanski, B. Garcin, C.
+      Foulon, R. Levy, M.L. Bréchemier, C. Rosso, M. Thiebaut de Schotten, E. Volle.
+      Two critical brain networks for the generation and combination of remote associates.
+      Brain. 2018. 141(1):217-233. https://doi.org/10.1093/brain/awx294. T. Bieth,
+      M. Ovando Tellez, A. Lopez-Persem, B. Garcin, L. Hugueville, K. Lehongre, R.
+      Levy, N. George*, E. Volle*. Time course of EEG power during problem-solving
+      with insight or remote thinking. Human Brain Mapping. 2024. 45(1):e26547. doi:
+      10.1002/hbm.26547. M. Ovando-Tellez*, YN. Kenett*, M. Benedek, B. Belanger,
+      M. Bernard, E. Volle. Brain connectivity-based prediction of remote associates
+      combination and semantic memory structure. Creativity Research Journal. 2023.
+      35:3, 522-546.'
+  further: []
+dois:
+  - 10.1093/brain/awx294
+  - 10.1002/hbm.26547
+administration: "For the French RAT (CAT): \nA detailed readme_CAT40.txt is provided
+  in zip file for additional information.\nA manual cleaning is needed to clear the
+  answers from plurals, conjugated verbs, non-words, and typos. This allows automatic
+  comparison of participants' responses with the list of accepted responses for each
+  trial.\nThe file Lists/TAC/WordLists/TAC40_list_strictCorrect_memowave.csv contains
+  the list of the responses considered correct (columns E to P). Please check it before
+  using it."
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 2
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Tasks/RAT – Remote Associates Task
+  migrated: '2026-10-22'
+version: 1.0.0
+

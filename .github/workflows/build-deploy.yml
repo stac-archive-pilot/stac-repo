@@ -1,0 +1,158 @@
+# Builds the catalog, previews and statistics and deploys the static site to
+# GitHub Pages.
+#
+# Pipeline (run from the repository root):
+#   03_build_catalog.R   -> site/data/catalog.json
+#   04_build_previews.R  -> site/previews/**   (LibreOffice headless, mdbtools)
+#   05_fetch_stats.R     -> site/data/stats.json (reads the archived traffic
+#                           snapshots from the "stats" branch in
+#                           $STAC_TRAFFIC_DIR and release download counts
+#                           via GH_TOKEN)
+#   06_render_readme.R
+# The built site/ is copied to _site/ and published.
+#
+# Repository settings: Settings > Pages > Source = "GitHub Actions".
+
+name: build-deploy
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "worker/**"
+      - "governance/**"
+      - ".github/ISSUE_TEMPLATE/**"
+      - ".github/DISCUSSION_TEMPLATE/**"
+  schedule:
+    # Nightly, after traffic-archive.yml (02:23 UTC) has stored the day's snapshot.
+    - cron: "41 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One deployment at a time; a running deployment is never cancelled midway.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      STAC_TRAFFIC_DIR: ${{ github.workspace }}/_stats/data/traffic
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Fetch archived traffic data from the stats branch
+        shell: bash
+        run: |
+          mkdir -p "$STAC_TRAFFIC_DIR"
+          if git ls-remote --exit-code --heads origin stats > /dev/null; then
+            git fetch --depth=1 origin stats
+            # Extract only data/ from the stats branch into _stats/
+            git archive FETCH_HEAD data | tar -x -C _stats
+            echo "Traffic snapshots: $(find "$STAC_TRAFFIC_DIR" -name '*.json' | wc -l)"
+          else
+            echo "::notice::No stats branch yet; stats.json will contain release downloads only."
+          fi
+
+      - name: Install LibreOffice, mdbtools and fonts
+        shell: bash
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            libreoffice-core libreoffice-writer libreoffice-calc libreoffice-impress \
+            mdbtools \
+            fonts-liberation fonts-dejavu-core fonts-noto-core fonts-noto-cjk
+          soffice --version || true
+          command -v mdb-tables mdb-export
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+          use-public-rspm: true
+
+      - name: Install R packages
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::dplyr
+            any::purrr
+            any::tidyr
+            any::stringr
+            any::jsonlite
+            any::yaml
+            any::glue
+            any::fs
+            any::readr
+            any::tibble
+            any::haven
+            any::xml2
+            any::digest
+            any::commonmark
+            any::readxl
+            any::httr2
+            any::cli
+            any::lubridate
+            any::jsonvalidate
+          cache-version: 1
+
+      # Previews are expensive (LibreOffice conversions). The exact key hits
+      # when no instrument file and no preview script changed; otherwise the
+      # most recent cache is restored and 04_build_previews.R only rebuilds
+      # previews whose source digest changed.
+      - name: Restore preview cache
+        uses: actions/cache@v4
+        with:
+          path: site/previews
+          key: previews-v1-${{ hashFiles('instruments/**', 'scripts/04_build_previews.R') }}
+          restore-keys: |
+            previews-v1-
+
+      - name: Build catalog
+        run: Rscript scripts/03_build_catalog.R
+
+      - name: Build previews
+        run: Rscript scripts/04_build_previews.R
+
+      - name: Build statistics
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: Rscript scripts/05_fetch_stats.R
+
+      - name: Render READMEs
+        run: Rscript scripts/06_render_readme.R
+
+      - name: Assemble _site
+        shell: bash
+        run: |
+          rm -rf _site
+          mkdir -p _site
+          cp -a site/. _site/
+          touch _site/.nojekyll
+          echo "Site size: $(du -sh _site | cut -f1)"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

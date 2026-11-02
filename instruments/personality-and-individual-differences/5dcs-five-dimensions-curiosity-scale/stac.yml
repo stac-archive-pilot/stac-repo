@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: 5dcs-five-dimensions-curiosity-scale
+acronym: 5DCS
+title: Five Dimensions Curiosity Scale
+section: personality-and-individual-differences
+subsection: null
+kind: scale
+summary: null
+tags:
+  - curiosity
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: null
+  source: stac-inclusion-criterion
+  verified: false
+files:
+  - path: 5DCS.qsf
+    format: qsf
+    languages: []
+    platform: qualtrics
+    role: instrument
+    citation: null
+  - path: Curiosity-5DC.pdf
+    format: pdf
+    languages: []
+    platform: null
+    role: instrument
+    citation: null
+  - path: Kashdan et al., 2020.pdf
+    format: pdf
+    languages: []
+    platform: null
+    role: reference
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: false
+  readme_na_fields: null
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Personality and Individual Differences/5DCS - Five Dimensions Curiosity
+    Scale
+  migrated: '2026-10-22'
+version: 1.0.0
+

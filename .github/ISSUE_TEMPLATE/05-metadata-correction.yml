@@ -1,0 +1,78 @@
+name: "Correct metadata"
+description: "Fix a title, citation, keyword, contributor, ORCID, language label, access statement or other catalog information."
+title: "[Metadata]: "
+labels: ["type:metadata", "status:needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for corrections to the **information about** an instrument (its `stac.yml` and README). For errors **in** the instrument files themselves (items, scoring keys, broken files), please use **Report an error**.
+
+        Comfortable with git? You can also edit the instrument's `stac.yml` directly and open a pull request, see [CONTRIBUTING.md](https://github.com/stac-archive/stac/blob/main/CONTRIBUTING.md).
+
+  - type: input
+    id: instrument
+    attributes:
+      label: "Instrument"
+      placeholder: "e.g. AReA (Aesthetic Responsiveness Assessment) or a link to its page"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: fields
+    attributes:
+      label: "What needs correcting?"
+      multiple: true
+      options:
+        - "Title or acronym"
+        - "Short description"
+        - "Section or kind"
+        - "Keywords"
+        - "Languages of a file"
+        - "Platform or format of a file"
+        - "Reference or citation"
+        - "Contributors or ORCID"
+        - "Access tier or licence statement"
+        - "Administration or scoring information"
+        - "File description or role"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: "Current information"
+      description: "What the catalog or README says now."
+      placeholder: "e.g. Reference for the Farsi version: (none listed)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: corrected
+    attributes:
+      label: "Corrected information"
+      description: "What it should say. For references, please use APA 7 with the DOI as a link."
+      placeholder: "e.g. Author, A. A. (2023). Title. Journal, 12(3), 45-67. https://doi.org/..."
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: "Source or evidence"
+      description: "Where can a curator verify the correction?"
+      placeholder: "e.g. https://doi.org/... or https://orcid.org/0000-0000-0000-0000"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: "Your connection to the instrument"
+      options:
+        - "I am an author or translator of it"
+        - "I use it in my research"
+        - "No particular connection"
+    validations:
+      required: false

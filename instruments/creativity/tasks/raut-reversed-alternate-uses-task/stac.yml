@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: raut-reversed-alternate-uses-task
+acronym: RAUT
+title: Reversed Alternate Uses Task
+section: creativity
+subsection: tasks
+kind: task
+summary: This was developed by Scherbakova et al. (2025) to measure domain general
+  creative thinking. Researchers should consult the article for additional details
+  on administration and scoring.
+tags:
+  - divergent-thinking
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: The_Reversed_Alternate_Uses_Task_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: Scherbakova, A., Dumas, D., Kagan, S., Vlaamster, T., Acar, S., & Organisciak,
+      P. (2025). Reversing the alternate uses task. *Thinking Skills and Creativity,*
+      101915.
+  - path: The_Reversed_Alternate_Uses_Task_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: Scherbakova, A., Dumas, D., Kagan, S., Vlaamster, T., Acar, S., & Organisciak,
+      P. (2025). Reversing the alternate uses task. *Thinking Skills and Creativity,*
+      101915.
+  - path: The_Reversed_Alternate_Uses_Task_Korean.docx
+    format: docx
+    languages:
+      - ko
+    platform: null
+    role: instrument
+    citation: Korean version provided by Yoojoong Kim and Denis Dumas.
+  - path: The_Reversed_Alternate_Uses_Task_Korean.pdf
+    format: pdf
+    languages:
+      - ko
+    platform: null
+    role: instrument
+    citation: null
+references:
+  primary:
+    - Scherbakova, A., Dumas, D., Kagan, S., Vlaamster, T., Acar, S., & Organisciak,
+      P. (2025). Reversing the alternate uses task. *Thinking Skills and Creativity,*
+      101915.
+    - Korean version provided by Yoojoong Kim and Denis Dumas.
+  further: []
+dois: []
+administration: See the article cited below for additional details about administration
+  and scoring.
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Tasks/RAUT – Reversed Alternate Uses Task
+  migrated: '2026-10-22'
+version: 1.0.0
+

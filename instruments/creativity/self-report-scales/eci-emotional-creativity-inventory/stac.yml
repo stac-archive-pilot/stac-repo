@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: eci-emotional-creativity-inventory
+acronym: ECI
+title: Emotional Creativity Inventory
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: The scale is available in its original English form (developed by Averill,
+  1999) and a German translation (developed by Weiss et al., 2025).
+tags:
+  - affect
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: ECI_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: null
+  - path: ECI_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: null
+  - path: ECI_German.docx
+    format: docx
+    languages:
+      - de
+    platform: null
+    role: instrument
+    citation: null
+  - path: ECI_German.pdf
+    format: pdf
+    languages:
+      - de
+    platform: null
+    role: instrument
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: Consult the citations below for scoring instructions.
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/ECI – Emotional Creativity Inventory
+  migrated: '2026-10-22'
+version: 1.0.0
+

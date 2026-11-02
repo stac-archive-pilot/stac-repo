@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: cas-creative-actions-scale
+acronym: CAS
+title: Creative Actions Scale
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: null
+tags: []
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: CAS_Spanish.docx
+    format: docx
+    languages:
+      - es
+    platform: null
+    role: instrument
+    citation: 'Elisondo, R. C. (2021). Creative Actions Scale: A Spanish scale of
+      creativity in different domains. Journal of Creative Behavior, 55(1), 215-227.'
+  - path: CAS_Spanish.pdf
+    format: pdf
+    languages:
+      - es
+    platform: null
+    role: instrument
+    citation: 'Elisondo, R. C. (2021). Creative Actions Scale: A Spanish scale of
+      creativity in different domains. Journal of Creative Behavior, 55(1), 215-227.'
+references:
+  primary:
+    - 'Elisondo, R. C. (2021). Creative Actions Scale: A Spanish scale of creativity
+      in different domains. Journal of Creative Behavior, 55(1), 215-227.'
+  further: []
+dois:
+  - null
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 1
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/CAS – Creative Actions Scale
+  migrated: '2026-10-22'
+version: 1.0.0
+

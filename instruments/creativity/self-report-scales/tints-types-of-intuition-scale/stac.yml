@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: tints-types-of-intuition-scale
+acronym: TIntS
+title: Types of Intuition Scale
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: null
+tags:
+  - intuition
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: TIntS_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Pretz, J. E., Brookings, J. B., Carlson, L. A., Humbert, T. K., Roy,
+      M., Jones, M., & Memmert, D. (2014). Development and validation of a new measure
+      of intuition: The types of intuition scale. Journal of Behavioral Decision Making,
+      27(5), 454-467. https://doi.org/10.1002/bdm.1820'
+  - path: TIntS_English_MediaLab.que
+    format: que
+    languages:
+      - en
+    platform: medialab
+    role: instrument
+    citation: null
+references:
+  primary:
+    - 'Pretz, J. E., Brookings, J. B., Carlson, L. A., Humbert, T. K., Roy, M., Jones,
+      M., & Memmert, D. (2014). Development and validation of a new measure of intuition:
+      The types of intuition scale. Journal of Behavioral Decision Making, 27(5),
+      454-467. https://doi.org/10.1002/bdm.1820'
+  further: []
+dois:
+  - null
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 2
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/TIntS – Types of Intuition Scale
+  migrated: '2026-10-22'
+version: 1.0.0
+

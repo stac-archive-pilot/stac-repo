@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: semdis
+acronym: null
+title: SemDis
+section: creativity
+subsection: methods-and-scoring
+kind: method
+summary: null
+tags:
+  - scoring-method
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: SemDis_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Beaty, R. E., & Johnson, D. R. (2021). Automating creativity assessment
+      with SemDis: An open platform for computing semantic distance. Behavior Research
+      Methods, 53(2), 757-780.'
+  - path: SemDis_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Beaty, R. E., & Johnson, D. R. (2021). Automating creativity assessment
+      with SemDis: An open platform for computing semantic distance. Behavior Research
+      Methods, 53(2), 757-780.'
+references:
+  primary:
+    - 'Beaty, R. E., & Johnson, D. R. (2021). Automating creativity assessment with
+      SemDis: An open platform for computing semantic distance. Behavior Research
+      Methods, 53(2), 757-780.'
+  further: []
+dois:
+  - null
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 1
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Tasks/Methods & Scoring/SemDis
+  migrated: '2026-10-22'
+version: 1.0.0
+

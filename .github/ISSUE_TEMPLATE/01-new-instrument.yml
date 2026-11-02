@@ -1,0 +1,313 @@
+name: "Submit a new instrument"
+description: "Propose a scale, task or scoring method for STAC. No git needed: fill in the form and attach your files."
+title: "[New instrument]: "
+labels: ["type:new-instrument", "intake:new-instrument", "status:needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for contributing to **STAC (Scales and Tasks for Art and Creativity Assessment)**.
+
+        This form collects everything a curator needs to add your measure to the archive. Your answers are turned into a draft folder with a `stac.yml` metadata file and a README, which a curator reviews with you before anything is published. Fields marked with a red asterisk are required. Expect about 15 minutes.
+
+        **Before you start**
+        - Everything you type or attach here is **public immediately** and stays in the issue history. Only attach files you are allowed to share openly.
+        - If the measure may only be distributed on request (restricted access), do **not** attach the files. Fill in the form, choose the access tier `restricted`, and send the files through the [private message form](https://stac-archive.github.io/stac/#/board?tab=private).
+        - Contributing a new language version of a measure that is already in STAC? Use the **New language version** form instead.
+        - The full guide is in [CONTRIBUTING.md](https://github.com/stac-archive/stac/blob/main/CONTRIBUTING.md). Examples of complete entries are on the [STAC website](https://stac-archive.github.io/stac/).
+
+  # ------------------------------------------------------------------ identity
+  - type: input
+    id: acronym
+    attributes:
+      label: "Acronym"
+      description: "Short name used in file names and the catalog. Use the acronym from the original publication."
+      placeholder: "e.g. K-DOCS"
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: "Full title"
+      description: "Full name of the measure as published."
+      placeholder: "e.g. Kaufman Domains of Creativity Scale"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: section
+    attributes:
+      label: "Section"
+      description: "Where does the measure belong in the archive? Curators may move it later."
+      options:
+        - "Art and aesthetics"
+        - "Creativity: self-report scales"
+        - "Creativity: tasks"
+        - "Creativity: methods and scoring"
+        - "Personality and individual differences"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: "Kind of measure"
+      options:
+        - "Scale (questionnaire or rating scale)"
+        - "Task (performance or production task)"
+        - "Method (scoring procedure or software or norms)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: "Short description"
+      description: |
+        Two to five sentences for the catalog: what the measure assesses, its dimensions or subscales, number of items or trials, response format, and the population it was developed for.
+      placeholder: |
+        The K-DOCS is a 50-item self-report measure of creativity in five domains (Everyday, Scholarly, Performance, Scientific, Artistic). Items are rated on a 5-point scale from "Much less creative" to "Much more creative". Developed and validated with adult samples.
+    validations:
+      required: true
+
+  - type: input
+    id: tags
+    attributes:
+      label: "Keywords"
+      description: "Comma-separated keywords that help people find the measure."
+      placeholder: "e.g. creative self-concept, domains of creativity, self-report"
+    validations:
+      required: false
+
+  # ------------------------------------------------------------------ evidence
+  - type: input
+    id: publication_doi
+    attributes:
+      label: "Peer-reviewed publication (DOI or link)"
+      description: "The journal article that introduces the measure and reports basic psychometric evidence (inclusion criterion 2)."
+      placeholder: "https://doi.org/10.1037/a0029751"
+    validations:
+      required: true
+
+  - type: textarea
+    id: psychometrics
+    attributes:
+      label: "Psychometric evidence in brief"
+      description: "Optional, but it speeds up review: reliability, factor structure, validity evidence and the samples it is based on."
+      placeholder: "e.g. alpha = .83 to .90 for the five domains; five-factor structure confirmed in N = 3,553 adults; correlations with creative achievement r = .30 to .45"
+    validations:
+      required: false
+
+  # ------------------------------------------------------------------ files
+  - type: dropdown
+    id: languages
+    attributes:
+      label: "Languages of the files you provide"
+      description: "Select all that apply. If a language is missing, choose Other and name it below."
+      multiple: true
+      options:
+        - "English"
+        - "German"
+        - "French"
+        - "Spanish"
+        - "Italian"
+        - "Portuguese"
+        - "Dutch"
+        - "Polish"
+        - "Russian"
+        - "Turkish"
+        - "Farsi"
+        - "Arabic"
+        - "Hebrew"
+        - "Chinese"
+        - "Japanese"
+        - "Korean"
+        - "Other"
+    validations:
+      required: true
+
+  - type: input
+    id: languages_other
+    attributes:
+      label: "Other languages"
+      description: "Only if you selected Other above."
+      placeholder: "e.g. Slovak; Brazilian Portuguese"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: formats
+    attributes:
+      label: "File formats and survey platforms"
+      description: "Select all formats you provide."
+      multiple: true
+      options:
+        - "PDF"
+        - "Word or ODT document"
+        - "Excel or CSV"
+        - "Qualtrics (.qsf)"
+        - "MediaLab (.que)"
+        - "PsychoPy"
+        - "MATLAB"
+        - "LimeSurvey"
+        - "SoSci Survey"
+        - "Unipark / Tivian EFS"
+        - "REDCap"
+        - "R or Python scoring code"
+        - "Images or audio stimuli"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: "Files"
+      description: |
+        **Drag and drop your files into this box** (or click the paperclip / paste). Wait until each upload has finished and a link appears before you submit.
+
+        - GitHub accepts common formats such as `.pdf`, `.docx`, `.xlsx`, `.pptx`, `.odt`, `.txt`, `.md`, `.csv`, `.json`, `.png`, `.jpg` and `.zip` (max. 25 MB per file).
+        - Survey and experiment files that GitHub does not accept directly (`.qsf`, `.que`, `.lss`, `.psyexp`, `.m`, `.R`, ...) must be put into a **`.zip`** first.
+        - Please name files following `ACRONYM_Language[_Platform][_Variant].ext`, for example `K-DOCS_German.docx` or `K-DOCS_English_Qualtrics.zip`. Curators will rename files if needed.
+      placeholder: "Drop files here"
+    validations:
+      required: true
+
+  - type: textarea
+    id: file_manifest
+    attributes:
+      label: "What is in each file?"
+      description: |
+        One line per file: `file name | language | platform | role | reference for this file`.
+        Roles: instrument, scoring, instructions, manual, reference, stimuli, software, data, figure. Leave the reference empty if the main reference applies.
+      placeholder: |
+        K-DOCS_English.pdf | English | PDF | instrument |
+        K-DOCS_German.docx | German | Word | instrument | Mustermann, A. (2020). ... https://doi.org/...
+        K-DOCS_English_Qualtrics.zip | English | Qualtrics | instrument |
+        K-DOCS_Scoring.xlsx | English | Excel | scoring |
+      render: text
+    validations:
+      required: false
+
+  # ------------------------------------------------------------------ use
+  - type: textarea
+    id: administration
+    attributes:
+      label: "Administration and scoring"
+      description: "How is the measure administered (instructions, time limits, order) and scored (subscales, reverse-keyed items, aggregation)? You can also point to a page in the manual or paper."
+      placeholder: |
+        Administration: self-paced, about 10 minutes, items in the published order.
+        Scoring: mean of items per domain. No reverse-keyed items. Domain item lists are in K-DOCS_Scoring.xlsx.
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: "How to cite (APA 7)"
+      description: |
+        The reference(s) users should cite, **one per language version** where they differ (inclusion criterion 4). Include DOIs as links.
+      placeholder: |
+        English: Kaufman, J. C. (2012). Counting the muses: Development of the Kaufman Domains of Creativity Scale (K-DOCS). Psychology of Aesthetics, Creativity, and the Arts, 6(4), 298-308. https://doi.org/10.1037/a0029751
+        German: Author, A. A. (Year). Title. Journal, Volume(Issue), pages. https://doi.org/...
+    validations:
+      required: true
+
+  - type: textarea
+    id: readme
+    attributes:
+      label: "README (optional)"
+      description: |
+        Paste the content of a `README.md` if you already wrote one following the [STAC README template](https://github.com/stac-archive/stac/blob/main/templates/README_Template.md), or attach it above. If you leave this empty, the curators generate a README from your answers and ask you to check it.
+      render: markdown
+    validations:
+      required: false
+
+  # ------------------------------------------------------------------ access
+  - type: dropdown
+    id: access_tier
+    attributes:
+      label: "Access tier"
+      description: |
+        Under which conditions may others use the measure? STAC normally includes only measures that are free for academic, non-commercial use. Other tiers are possible only in agreement with the moderators. Note: files in this repository are public. For `restricted` measures the files are kept out of the repository and distributed on request.
+      options:
+        - "open: free to use for any purpose with citation"
+        - "academic-noncommercial: free for academic and non-commercial use (STAC default)"
+        - "research-only: free for research use only"
+        - "permission-required: users must ask the authors before use"
+        - "commercial-with-permission: free for academic use and commercial use requires permission"
+        - "restricted: files must not be public and are distributed on request"
+      default: 1
+    validations:
+      required: true
+
+  - type: textarea
+    id: access_statement
+    attributes:
+      label: "Licence or permission statement"
+      description: "Optional: the exact wording of the licence or permission, the copyright holder, or a link to it (for example a CC licence or the publisher's terms)."
+      placeholder: "e.g. (c) 2012 J. C. Kaufman. Free for academic and non-commercial use. Commercial use requires written permission from the author."
+    validations:
+      required: false
+
+  # ------------------------------------------------------------------ people
+  - type: dropdown
+    id: contributor_relationship
+    attributes:
+      label: "Your relationship to the measure"
+      options:
+        - "I am an author of the measure"
+        - "I developed this translation or adaptation"
+        - "I have written permission from the authors to share it"
+        - "Other (please explain in the notes)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: contributors
+    attributes:
+      label: "Contributors to credit"
+      description: |
+        One line per person: `Name | ORCID | role`. Roles: author, translator, adapter, contributor, curator. Names and ORCIDs appear publicly in the metadata.
+      placeholder: |
+        James C. Kaufman | 0000-0000-0000-0000 | author
+        Anna Mustermann | 0000-0000-0000-0000 | translator
+      render: text
+    validations:
+      required: true
+
+  # ------------------------------------------------------------------ criteria
+  - type: checkboxes
+    id: criteria
+    attributes:
+      label: "STAC inclusion criteria"
+      description: |
+        STAC includes measures that meet all four criteria described in Kenett, Silvia and Benedek (2026, [https://doi.org/10.1027/2698-1866/a000140](https://doi.org/10.1027/2698-1866/a000140)). Please confirm each one.
+      options:
+        - label: "**(1) Scope.** The measure captures psychological constructs relevant to creativity, aesthetics or the arts, or captures individual differences in personality or cognitive ability that are of interest in this context."
+          required: true
+        - label: "**(2) Peer review.** The measure was published in a peer-reviewed journal that reports basic evidence of its psychometric quality."
+          required: true
+        - label: "**(3) Permission to share.** I have permission to share these materials openly (typically because I am an author of the measure or developed the translation). I understand that measures requiring permission or a licence to be used are not included, unless the moderators agree to a different access tier."
+          required: true
+        - label: "**(4) Usable documentation.** I provide the measure together with information that enables others to use it as intended: an overview of the files, administration and scoring, and how to cite it (separate references for each language version), and I confirm that the measure is free to use for academic and non-commercial purposes."
+          required: true
+
+  - type: checkboxes
+    id: agreements
+    attributes:
+      label: "Agreements"
+      options:
+        - label: "I agree that my name, ORCID and the information in this form are published in the STAC metadata and the public issue history."
+          required: true
+        - label: "I agree to follow the [Code of Conduct](https://github.com/stac-archive/stac/blob/main/CODE_OF_CONDUCT.md)."
+          required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: "Anything else?"
+      description: "Related measures, known issues, planned language versions, or questions for the curators."
+    validations:
+      required: false

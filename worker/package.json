@@ -1,0 +1,11 @@
+{
+  "name": "stac-api",
+  "private": true,
+  "type": "module",
+  "description": "Serverless backend (Cloudflare Worker + D1 + R2 + Turnstile) for the STAC archive website",
+  "scripts": {
+    "test": "node test/run-tests.mjs",
+    "dev": "npx wrangler dev",
+    "deploy": "npx wrangler deploy"
+  }
+}

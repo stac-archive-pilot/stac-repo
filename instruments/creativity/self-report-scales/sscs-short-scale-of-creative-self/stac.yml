@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: sscs-short-scale-of-creative-self
+acronym: SSCS
+title: Short Scale of Creative Self
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: This scale is widely-used in creativity research and was first published
+  by Karwowski et al. (2018). See below for additional references to consult regarding
+  administration and scoring. Researchers interested in creative self-efficacy could
+  consult the CSES (Creative Self-Efficacy Scale) elsewhere in the STAC archive.
+tags:
+  - creative-self
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: SSCS_English.doc
+    format: doc
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: Karwowski, M., Lebuda, I., & Wiśniewska, E. (2018). Measuring creative
+      self-efficacy and creative personal identity. The International Journal of Creativity
+      & Problem Solving, 28(1), 45-57.
+  - path: SSCS_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: Karwowski, M., Lebuda, I., & Wiśniewska, E. (2018). Measuring creative
+      self-efficacy and creative personal identity. The International Journal of Creativity
+      & Problem Solving, 28(1), 45-57.
+  - path: SSCS_English_Qualtrics.qsf
+    format: qsf
+    languages:
+      - en
+    platform: qualtrics
+    role: instrument
+    citation: Karwowski, M., Lebuda, I., & Wiśniewska, E. (2018). Measuring creative
+      self-efficacy and creative personal identity. The International Journal of Creativity
+      & Problem Solving, 28(1), 45-57.
+references:
+  primary:
+    - Karwowski, M., Lebuda, I., & Wiśniewska, E. (2018). Measuring creative self-efficacy
+      and creative personal identity. The International Journal of Creativity & Problem
+      Solving, 28(1), 45-57.
+  further:
+    - 'Zielińska, A., Lebuda, I., & Karwowski, M. (2022). Scaling the creative self:
+      An item response theory analysis of the short scale of creative self. Creativity
+      Research Journal, 34(4), 431-444.'
+dois: []
+administration: |-
+  This scale has two subscales: creative self-efficacy and creative personal identity. Many researchers have used a 7-point response scale; many others have used a 5-point response scale. Users of the scale should consult a recent large scale item-response analysis, which offers psychometric details about the scale and suggests some merit to the 5-point scale over 7-point scale:
+
+  Zielińska, A., Lebuda, I., & Karwowski, M. (2022). Scaling the creative self: An item response theory analysis of the short scale of creative self. Creativity Research Journal, 34(4), 431-444.
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/SSCS – Short Scale of Creative Self
+  migrated: '2026-10-22'
+version: 1.0.0
+

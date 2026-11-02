@@ -1,0 +1,122 @@
+# yaml-language-server: $schema=../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: area-aesthetic-responsiveness-assessment
+acronym: AReA
+title: Aesthetic Responsiveness Assessment
+section: art-and-aesthetics
+subsection: null
+kind: scale
+summary: This scale was reported and developed by Schlotz et al. (2021). The archive
+  has English, German, and Farsi versions.
+tags:
+  - aesthetics
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: AReA_English_German.docx
+    format: docx
+    languages:
+      - en
+      - de
+    platform: null
+    role: instrument
+    citation: 'Schlotz, W., Wallot, S., Omigie, D., Masucci, M. D., Hoelzmann, S.
+      C., & Vessel, E. A. (2021). The Aesthetic Responsiveness Assessment (AReA):
+      A screening tool to assess individual differences in responsiveness to art in
+      English and German. Psychology of Aesthetics, Creativity, and the Arts, 15(4),
+      682–696. https://doi.org/10.1037/aca0000348'
+  - path: AReA_English_German.pdf
+    format: pdf
+    languages:
+      - en
+      - de
+    platform: null
+    role: instrument
+    citation: 'Schlotz, W., Wallot, S., Omigie, D., Masucci, M. D., Hoelzmann, S.
+      C., & Vessel, E. A. (2021). The Aesthetic Responsiveness Assessment (AReA):
+      A screening tool to assess individual differences in responsiveness to art in
+      English and German. Psychology of Aesthetics, Creativity, and the Arts, 15(4),
+      682–696. https://doi.org/10.1037/aca0000348'
+  - path: AReA_English_Qualtrics.qsf
+    format: qsf
+    languages:
+      - en
+    platform: qualtrics
+    role: instrument
+    citation: 'Schlotz, W., Wallot, S., Omigie, D., Masucci, M. D., Hoelzmann, S.
+      C., & Vessel, E. A. (2021). The Aesthetic Responsiveness Assessment (AReA):
+      A screening tool to assess individual differences in responsiveness to art in
+      English and German. Psychology of Aesthetics, Creativity, and the Arts, 15(4),
+      682–696. https://doi.org/10.1037/aca0000348'
+  - path: AReA_Farsi_English.docx
+    format: docx
+    languages:
+      - en
+      - fa
+    platform: null
+    role: instrument
+    citation: 'Golbabaei, S., Christensen, J.F., Vessel, E.A., Kazemian, N., Borhani,
+      K. (2022). The Aesthetic Responsiveness Assessment (AReA) in Farsi Language:
+      A scale validation and cultural adaptation study. Psychology of Aesthetics,
+      Creativity, and the Arts. https://doi.org/10.1037/aca0000532'
+  - path: AReA_Farsi_English.pdf
+    format: pdf
+    languages:
+      - en
+      - fa
+    platform: null
+    role: instrument
+    citation: 'Golbabaei, S., Christensen, J.F., Vessel, E.A., Kazemian, N., Borhani,
+      K. (2022). The Aesthetic Responsiveness Assessment (AReA) in Farsi Language:
+      A scale validation and cultural adaptation study. Psychology of Aesthetics,
+      Creativity, and the Arts. https://doi.org/10.1037/aca0000532'
+references:
+  primary:
+    - 'Schlotz, W., Wallot, S., Omigie, D., Masucci, M. D., Hoelzmann, S. C., & Vessel,
+      E. A. (2021). The Aesthetic Responsiveness Assessment (AReA): A screening tool
+      to assess individual differences in responsiveness to art in English and German.
+      Psychology of Aesthetics, Creativity, and the Arts, 15(4), 682–696. https://doi.org/10.1037/aca0000348'
+    - 'Golbabaei, S., Christensen, J.F., Vessel, E.A., Kazemian, N., Borhani, K. (2022).
+      The Aesthetic Responsiveness Assessment (AReA) in Farsi Language: A scale validation
+      and cultural adaptation study. Psychology of Aesthetics, Creativity, and the
+      Arts. https://doi.org/10.1037/aca0000532'
+  further:
+    - Silvia, P. J., Rodriguez-Boerwinkle, R. M., Awa, K. N., Zabelina, D. L., & Christensen,
+      A. P. (2025). Evaluating the structure of the Aesthetic Responsiveness Assessment
+      (AReA) with bootstrap exploratory graph analysis. Empirical Studies of the Arts,
+      43(1), 550-564.
+dois:
+  - 10.1037/aca0000348
+  - 10.1037/aca0000532
+administration: "The AReA scale has three subscales measuring different aspects of
+  aesthetic responsiveness. \n\nScale users should note that the original article
+  has a scoring method where 1 item is included in 2 subscales, and this scoring approach
+  is reflected in the files below:\n\nSchlotz, W., Wallot, S., Omigie, D., Masucci,
+  M. D., Hoelzmann, S. C., & Vessel, E. A. (2021). The Aesthetic Responsiveness Assessment
+  (AReA): A screening tool to assess individual differences in responsiveness to art
+  in English and German. Psychology of Aesthetics, Creativity, and the Arts, 15(4),
+  682–696. https://doi.org/10.1037/aca0000348\n\nOther psychometric research on the
+  AReA scale suggests that the item can be assigned to one subscale exclusively:\n\nSilvia,
+  P. J., Rodriguez-Boerwinkle, R. M., Awa, K. N., Zabelina, D. L., & Christensen,
+  A. P. (2025). Evaluating the structure of the Aesthetic Responsiveness Assessment
+  (AReA) with bootstrap exploratory graph analysis. Empirical Studies of the Arts,
+  43(1), 550-564."
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Art and Aesthetics/AReA – Aesthetic Responsiveness Assessment
+  migrated: '2026-10-22'
+version: 1.0.0
+

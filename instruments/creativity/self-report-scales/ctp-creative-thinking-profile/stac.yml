@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: ctp-creative-thinking-profile
+acronym: CTP
+title: Creative Thinking Profile
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: null
+tags: []
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: Creative Thinking Profile_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Cromwell, J. R., Haase, H., & Vladova, G. (2023). The creative thinking
+      profile: Predictingintrinsic motivation based on preferences for different creative
+      thinking styles. Personality and Individual Differences,208. https://doi.org/10.1016/j.paid.2023.112205'
+references:
+  primary:
+    - 'Cromwell, J. R., Haase, H., & Vladova, G. (2023). The creative thinking profile:
+      Predictingintrinsic motivation based on preferences for different creative thinking
+      styles. Personality and Individual Differences,208. https://doi.org/10.1016/j.paid.2023.112205'
+  further: []
+dois:
+  - null
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 1
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/CTP - Creative Thinking Profile
+  migrated: '2026-10-22'
+version: 1.0.0
+

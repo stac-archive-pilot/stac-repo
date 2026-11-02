@@ -1,0 +1,405 @@
+# Turns "Submit a new instrument" issue-form submissions into draft pull
+# requests.
+#
+# Flow
+#  1. A contributor opens an issue with .github/ISSUE_TEMPLATE/01-new-instrument.yml.
+#     The form applies the label "intake:new-instrument", which fires an
+#     "issues: labeled" event.
+#       - Label added by someone WITHOUT triage access (normally the issue
+#         author): PREVIEW. The scaffold is generated and validated, and the
+#         result is posted as a comment. Nothing is committed.
+#       - Label added by a curator/moderator (triage access or higher): PR.
+#  2. A curator or moderator comments "/accept" on the issue: PR.
+#     The scaffold is committed to branch intake/issue-<n> and a DRAFT pull
+#     request is opened. Curators then finish the entry in the PR.
+#
+# Permission check: the commenter's/labeller's repository role is read from
+# the REST API (GET /repos/{owner}/{repo}/collaborators/{user}/permission).
+# Roles triage, write, maintain and admin count as curator/moderator.
+# (GITHUB_TOKEN cannot read org team membership, so the check uses the
+# repository role that the curator and moderator teams grant.)
+#
+# Script contract: scripts/09_intake_issue.R <issue-number>
+#   env ISSUE_BODY_FILE  JSON produced by stefanbuck/github-issue-parser from
+#                        the issue body; keys are the field ids of the form
+#   env INTAKE_MODE      "preview" or "pr"
+#   env ISSUE_TITLE, ISSUE_AUTHOR, ISSUE_URL
+#   writes instruments/<section>/[<subsection>/]<slug>/ (files, README.md,
+#   stac.yml draft). The issue body is UNTRUSTED input.
+#
+# Optional secret INTAKE_TOKEN (fine-grained PAT or App token with contents
+# and pull-requests write). Without it, GITHUB_TOKEN creates the PR; such PRs
+# do not trigger other workflows, so this workflow dispatches validate.yml
+# on the PR branch itself. Repository setting required:
+# Settings > Actions > General > "Allow GitHub Actions to create and approve
+# pull requests".
+
+name: intake
+
+on:
+  issues:
+    types: [labeled]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: intake-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    if: >-
+      (github.event_name == 'issues' && github.event.label.name == 'intake:new-instrument')
+      || (github.event_name == 'issue_comment'
+          && !github.event.issue.pull_request
+          && contains(github.event.issue.labels.*.name, 'intake:new-instrument')
+          && startsWith(github.event.comment.body, '/accept'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    outputs:
+      mode: ${{ steps.decide.outputs.mode }}
+    steps:
+      - name: Decide mode from actor permission
+        id: decide
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          EVENT: ${{ github.event_name }}
+          ACTOR: ${{ github.event_name == 'issue_comment' && github.event.comment.user.login || github.event.sender.login }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          role="$(gh api "repos/$REPO/collaborators/$ACTOR/permission" --jq '.role_name' 2>/dev/null || echo none)"
+          echo "Actor $ACTOR has role: $role"
+          case "$role" in
+            admin|maintain|write|triage) privileged=true ;;
+            *) privileged=false ;;
+          esac
+          if [ "$privileged" = "true" ]; then
+            mode="pr"
+          elif [ "$EVENT" = "issues" ]; then
+            mode="preview"
+          else
+            mode="deny"
+            gh issue comment "$ISSUE" --repo "$REPO" --body \
+              "Thanks, @$ACTOR. Only STAC curators and moderators can accept submissions with \`/accept\`. A curator will review this submission."
+          fi
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+
+  # ------------------------------------------------------------------ preview
+  preview:
+    needs: gate
+    if: needs.gate.outputs.mode == 'preview'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      issues: write
+    env:
+      STAC_REPORT_DIR: _reports
+    steps:
+      - name: Check out default branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Parse issue form
+        id: parse
+        uses: stefanbuck/github-issue-parser@v3
+        with:
+          template-path: .github/ISSUE_TEMPLATE/01-new-instrument.yml
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+          use-public-rspm: true
+
+      - name: Install R packages
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::dplyr
+            any::purrr
+            any::tidyr
+            any::stringr
+            any::jsonlite
+            any::yaml
+            any::glue
+            any::fs
+            any::readr
+            any::tibble
+            any::haven
+            any::xml2
+            any::digest
+            any::commonmark
+            any::readxl
+            any::httr2
+            any::cli
+            any::lubridate
+            any::jsonvalidate
+          cache-version: 1
+
+      - name: Generate scaffold
+        id: scaffold
+        continue-on-error: true
+        shell: bash
+        env:
+          ISSUE_BODY_FILE: ${{ runner.temp }}/issue.json
+          ISSUE_JSON: ${{ steps.parse.outputs.jsonString }}
+          INTAKE_MODE: preview
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          printf '%s' "$ISSUE_JSON" > "$ISSUE_BODY_FILE"
+          mkdir -p "$STAC_REPORT_DIR"
+          set -o pipefail
+          Rscript scripts/09_intake_issue.R "$ISSUE_NUMBER" 2>&1 | tee "$STAC_REPORT_DIR/intake.log"
+
+      - name: Validate scaffold
+        id: validate
+        if: steps.scaffold.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          Rscript scripts/07_validate.R 2>&1 | tee "$STAC_REPORT_DIR/validate.log"
+
+      - name: Post preview comment
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+          SCAFFOLD: ${{ steps.scaffold.outcome }}
+          VALIDATE: ${{ steps.validate.outcome }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          body="$RUNNER_TEMP/comment.md"
+          changed="$(git status --porcelain --untracked-files=all -- instruments | sed 's/^...//')"
+          if [ "$SCAFFOLD" != "success" ] || [ -z "$changed" ]; then
+            {
+              echo "### Automatic check: the submission could not be processed yet"
+              echo
+              echo "The intake script could not build a draft entry from this form. A curator will look at it."
+              echo "Common causes: an attachment that is still uploading, a required file missing, or survey files not packed into a \`.zip\`."
+              echo
+              echo "<details><summary>Log</summary>"
+              echo
+              echo '```'
+              tail -n 60 "$STAC_REPORT_DIR/intake.log" 2>/dev/null || echo "(no log)"
+              echo '```'
+              echo "</details>"
+              echo
+              echo "[Workflow run]($RUN_URL)"
+            } > "$body"
+            gh issue edit "$ISSUE" --repo "$REPO" --add-label "intake:failed"
+          else
+            stac_file="$(grep -m1 '/stac\.yml$' <<< "$changed" || true)"
+            {
+              echo "### Automatic check: draft entry generated"
+              echo
+              echo "Thank you for your submission. A draft entry was built from your answers. **Nothing has been published yet**: a curator will review the submission and reply here."
+              echo
+              if [ "$VALIDATE" = "success" ]; then
+                echo "Validation: **passed**."
+              else
+                echo "Validation: **found problems** (see below). You can fix most of them by editing the issue; a curator will help with the rest."
+              fi
+              echo
+              echo "<details><summary>Files in the draft</summary>"
+              echo
+              echo '```'
+              echo "$changed"
+              echo '```'
+              echo "</details>"
+              if [ -n "$stac_file" ] && [ -f "$stac_file" ]; then
+                echo
+                echo "<details><summary>Draft metadata (stac.yml)</summary>"
+                echo
+                echo '```yaml'
+                head -c 15000 "$stac_file"
+                echo
+                echo '```'
+                echo "</details>"
+              fi
+              if [ "$VALIDATE" != "success" ]; then
+                echo
+                echo "<details open><summary>Validation messages</summary>"
+                echo
+                echo '```'
+                tail -n 60 "$STAC_REPORT_DIR/validate.log" 2>/dev/null
+                echo '```'
+                echo "</details>"
+              fi
+              echo
+              echo "_Curators: comment \`/accept\` to open a draft pull request with this entry._ [Workflow run]($RUN_URL)"
+            } > "$body"
+          fi
+          gh issue comment "$ISSUE" --repo "$REPO" --body-file "$body"
+
+  # ------------------------------------------------------------------ pull request
+  scaffold-pr:
+    needs: gate
+    if: needs.gate.outputs.mode == 'pr'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      actions: write
+    env:
+      STAC_REPORT_DIR: _reports
+    steps:
+      - name: Acknowledge command
+        if: github.event_name == 'issue_comment'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          COMMENT_ID: ${{ github.event.comment.id }}
+        run: gh api "repos/$REPO/issues/comments/$COMMENT_ID/reactions" -f content=rocket > /dev/null
+
+      - name: Check out default branch
+        uses: actions/checkout@v4
+
+      - name: Parse issue form
+        id: parse
+        uses: stefanbuck/github-issue-parser@v3
+        with:
+          template-path: .github/ISSUE_TEMPLATE/01-new-instrument.yml
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+          use-public-rspm: true
+
+      - name: Install R packages
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::dplyr
+            any::purrr
+            any::tidyr
+            any::stringr
+            any::jsonlite
+            any::yaml
+            any::glue
+            any::fs
+            any::readr
+            any::tibble
+            any::haven
+            any::xml2
+            any::digest
+            any::commonmark
+            any::readxl
+            any::httr2
+            any::cli
+            any::lubridate
+            any::jsonvalidate
+          cache-version: 1
+
+      - name: Generate scaffold
+        shell: bash
+        env:
+          ISSUE_BODY_FILE: ${{ runner.temp }}/issue.json
+          ISSUE_JSON: ${{ steps.parse.outputs.jsonString }}
+          INTAKE_MODE: pr
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          printf '%s' "$ISSUE_JSON" > "$ISSUE_BODY_FILE"
+          mkdir -p "$STAC_REPORT_DIR"
+          set -o pipefail
+          Rscript scripts/09_intake_issue.R "$ISSUE_NUMBER" 2>&1 | tee "$STAC_REPORT_DIR/intake.log"
+          if [ -z "$(git status --porcelain --untracked-files=all -- instruments)" ]; then
+            echo "::error::09_intake_issue.R did not write anything under instruments/."
+            exit 1
+          fi
+
+      - name: Write pull request body
+        shell: bash
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+        run: |
+          {
+            echo "Draft entry generated from issue #$ISSUE_NUMBER (submitted by @$ISSUE_AUTHOR)."
+            echo
+            echo "Closes #$ISSUE_NUMBER"
+            echo
+            echo "## Curator checklist"
+            echo
+            echo "- [ ] Inclusion criteria (1) to (4) checked against the publication and the permission statement"
+            echo "- [ ] Files renamed to \`ACRONYM_Language[_Platform][_Variant].ext\` where needed; survey zips unpacked if appropriate"
+            echo "- [ ] \`stac.yml\`: section, kind, languages, roles, per-file references, access tier"
+            echo "- [ ] README complete (overview, files, administration and scoring, citation per language, licensing)"
+            echo "- [ ] Contributors and ORCIDs confirmed with the submitter"
+            echo "- [ ] \`validate\` check passes"
+            echo
+            echo "Mark the pull request as ready for review when done."
+          } > "$RUNNER_TEMP/pr-body.md"
+
+      - name: Create draft pull request
+        id: cpr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.INTAKE_TOKEN || github.token }}
+          branch: intake/issue-${{ github.event.issue.number }}
+          base: ${{ github.event.repository.default_branch }}
+          add-paths: |
+            instruments/**
+          commit-message: |
+            Add intake scaffold from issue #${{ github.event.issue.number }}
+
+            Co-authored-by: ${{ github.event.issue.user.login }} <${{ github.event.issue.user.id }}+${{ github.event.issue.user.login }}@users.noreply.github.com>
+          author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          committer: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          title: "Intake #${{ github.event.issue.number }}: ${{ fromJSON(steps.parse.outputs.jsonString).acronym }}"
+          body-path: ${{ runner.temp }}/pr-body.md
+          labels: |
+            type:new-instrument
+          draft: true
+          delete-branch: true
+
+      - name: Run validate on the pull request branch
+        if: steps.cpr.outputs.pull-request-operation == 'created' || steps.cpr.outputs.pull-request-operation == 'updated'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          BRANCH: intake/issue-${{ github.event.issue.number }}
+        run: gh workflow run validate.yml --repo "$REPO" --ref "$BRANCH"
+
+      - name: Report back on the issue
+        if: always()
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+          PR_URL: ${{ steps.cpr.outputs.pull-request-url }}
+          JOB_STATUS: ${{ job.status }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ "$JOB_STATUS" = "success" ] && [ -n "$PR_URL" ]; then
+            gh issue edit "$ISSUE" --repo "$REPO" --add-label "intake:pr-opened,status:under-review" --remove-label "intake:failed" || \
+              gh issue edit "$ISSUE" --repo "$REPO" --add-label "intake:pr-opened,status:under-review"
+            gh issue comment "$ISSUE" --repo "$REPO" --body \
+              "A draft pull request with this entry is open: $PR_URL. Curators will finish it there; you are welcome to follow along and comment."
+          else
+            gh issue edit "$ISSUE" --repo "$REPO" --add-label "intake:failed"
+            gh issue comment "$ISSUE" --repo "$REPO" --body \
+              "The intake workflow could not open a pull request. Details: $RUN_URL"
+          fi

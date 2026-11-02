@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=../schema/stac-instrument.schema.json
+# Template for a new instrument. Copy next to README.md in
+# instruments/<section>/<subsection>/<acronym-title-slug>/stac.yml
+schema_version: 1
+id: abc-example-scale          # equals the folder name
+acronym: ABC
+title: Example Scale of Creative Something
+section: creativity            # art-and-aesthetics | creativity | personality-and-individual-differences
+subsection: self-report-scales # self-report-scales | tasks | methods-and-scoring | null
+kind: scale                    # scale | task | method
+summary: >
+  What the measure captures, its dimensions and number of items.
+tags: [creative-self]
+tags_curated: true
+access:
+  tier: academic-noncommercial # open | academic-noncommercial | research-only | commercial-with-permission | permission-required | restricted
+  statement: All files within this folder are free to use for academic and non-commercial purposes.
+  source: author
+  verified: true
+  verified_by: Name of moderator
+  verified_on: 2026-11-01
+files:
+  - path: ABC_English.pdf
+    languages: [en]
+    role: instrument
+    citation: "Author, A. (2026). Title. Journal, 1(1), 1-10. https://doi.org/10.xxxx/xxxxx"
+  - path: ABC_German_Qualtrics.qsf
+    languages: [de]
+    platform: qualtrics
+    role: instrument
+    citation: "Translator, T. (2026). ..."
+references:
+  primary: []
+  further: []
+dois: []
+administration: |
+  How to administer and score (Markdown allowed).
+contributors:
+  - name: Ada Author
+    orcid: 0000-0000-0000-0000
+    role: author
+status:
+  stage: in-review
+provenance:
+  derived_from: null           # id of the instrument this adapts or translates
+version: 1.0.0

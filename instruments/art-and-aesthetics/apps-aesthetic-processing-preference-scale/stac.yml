@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: apps-aesthetic-processing-preference-scale
+acronym: APPS
+title: Aesthetic Processing Preference Scale
+section: art-and-aesthetics
+subsection: null
+kind: scale
+summary: null
+tags:
+  - aesthetics
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: APPS_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: Kopatich, R. D., Steciuch, C. C., Feller, D. P., Millis, K., & Siegesmund,
+      R. (in press). Development and Validation of the Aesthetic Processing Preference
+      Scale. Psychology of Aesthetics, Creativity, andthe Arts. Advance online publication.
+      http://dx.doi.org.10.1037/aca0000449
+  - path: APPS_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: Kopatich, R. D., Steciuch, C. C., Feller, D. P., Millis, K., & Siegesmund,
+      R. (in press). Development and Validation of the Aesthetic Processing Preference
+      Scale. Psychology of Aesthetics, Creativity, andthe Arts. Advance online publication.
+      http://dx.doi.org.10.1037/aca0000449
+  - path: APPS_English_Qualtrics.qsf
+    format: qsf
+    languages:
+      - en
+    platform: qualtrics
+    role: instrument
+    citation: null
+references:
+  primary:
+    - Kopatich, R. D., Steciuch, C. C., Feller, D. P., Millis, K., & Siegesmund, R.
+      (in press). Development and Validation of the Aesthetic Processing Preference
+      Scale. Psychology of Aesthetics, Creativity, andthe Arts. Advance online publication.
+      http://dx.doi.org.10.1037/aca0000449
+  further: []
+dois:
+  - null
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 2
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Art and Aesthetics/APPS – Aesthetic Processing Preference Scale
+  migrated: '2026-10-22'
+version: 1.0.0
+

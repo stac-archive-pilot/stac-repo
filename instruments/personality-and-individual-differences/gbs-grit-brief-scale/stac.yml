@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: gbs-grit-brief-scale
+acronym: GBS
+title: Grit Brief Scale
+section: personality-and-individual-differences
+subsection: null
+kind: scale
+summary: null
+tags: []
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: GBS_English_MediaLab.que
+    format: que
+    languages:
+      - en
+    platform: medialab
+    role: instrument
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 2
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Personality and Individual Differences/GBS – Grit Brief Scale
+  migrated: '2026-10-22'
+version: 1.0.0
+

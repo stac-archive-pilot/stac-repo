@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>STAC Archive</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Scales and Tasks for Art and Creativity Assessment: open, versioned archive of creativity, aesthetics and individual-differences measures.">
+<link rel="alternate" type="application/atom+xml" title="STAC: new and updated instruments" href="feed.xml">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/stac.css">
+</head>
+<body>
+<!-- STAC-BODY-START -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11m0 0 4-4m-4 4-4-4M5 19h14"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-fork" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="12" cy="19" r="2"/><path d="M6 7v2a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V7M12 12v5"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24"><path d="M7 7h4v4c0 3-1.5 5-4 6M15 7h4v4c0 3-1.5 5-4 6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5Z"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4m0 0h11l-2 4 2 4H5"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6l-7-3Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5H5V6h5"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 5h16l-6 8v6l-4-2v-4L4 5Z"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 5 14h6l-1 7 8-11h-6l1-7Z"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="m8 11 8-4M8 13l8 4"/></symbol>
+  </defs>
+</svg>
+
+<div class="proto-bar" role="note">
+  <div class="wrap">
+    <span><strong>Prototype</strong> &nbsp;Proposed GitHub home for STAC, built from the OSF archive of 22 Oct 2026. Not the official archive.</span>
+    <a href="https://osf.io/4s9p6" target="_blank" rel="noopener">Official archive on OSF <svg class="icon"><use href="#i-external"/></svg></a>
+  </div>
+</div>
+
+<header class="app-header">
+  <div class="wrap">
+    <a class="brand" href="#/" data-route="catalog">
+      <span class="brand-mark">ST<span>A</span>C</span>
+      <span class="brand-sub">Scales and Tasks for Art and Creativity Assessment</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#/" data-nav="catalog">Catalog</a>
+      <a href="#/dashboard" data-nav="dashboard">Dashboard</a>
+      <a href="#/board" data-nav="board">Message board</a>
+      <a href="#/contribute" data-nav="contribute">Contribute</a>
+      <a href="#/about" data-nav="about">About</a>
+    </nav>
+    <div class="header-tools">
+      <button class="btn btn-ghost" id="theme-toggle" type="button" aria-label="Switch color theme"><svg class="icon"><use href="#i-moon"/></svg></button>
+      <a class="btn" id="gh-link" href="https://github.com/stac-archive/stac" target="_blank" rel="noopener"><svg class="icon"><use href="#i-star"/></svg> <span class="gh-text">GitHub</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ============================== CATALOG ============================== -->
+  <section id="view-catalog" data-view="catalog">
+    <div class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">Open archive · since 2013 · supported by APA Division 10 and SNC</p>
+            <h1>Measures for <em>creativity</em>, aesthetics and the arts</h1>
+            <p class="hero-lede">Find authoritative versions of scales and tasks, preview every file in the browser, check which languages and survey platforms exist, and cite the right source for each version.</p>
+          </div>
+          <div class="ledger" id="ledger" aria-label="Archive in numbers"></div>
+        </div>
+        <div class="search-row">
+          <div class="search-box">
+            <svg class="icon"><use href="#i-search"/></svg>
+            <label for="q" class="sr-only">Search instruments</label>
+            <input id="q" type="search" autocomplete="off" placeholder="Search acronym, construct, author, language, file …">
+            <span class="kbd">/</span>
+          </div>
+          <button class="btn facet-toggle" id="facet-toggle" type="button" aria-expanded="false"><svg class="icon"><use href="#i-filter"/></svg> Filters</button>
+        </div>
+        <div class="suggest" id="suggest"></div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="catalog">
+        <aside class="facets" id="facets" aria-label="Filters"></aside>
+        <div>
+          <div class="results-bar">
+            <h2 id="result-count" aria-live="polite"></h2>
+            <div class="active-filters" id="active-filters"></div>
+            <div class="results-tools">
+              <label for="sort" class="sr-only">Sort</label>
+              <select id="sort">
+                <option value="relevance">Best match</option>
+                <option value="az">A to Z</option>
+                <option value="popular">Most downloaded</option>
+                <option value="languages">Most languages</option>
+                <option value="quality">Metadata quality</option>
+                <option value="newest">Recently added or changed</option>
+              </select>
+              <button class="btn btn-sm" id="view-grid" type="button" aria-pressed="true" aria-label="Grid view"><svg class="icon"><use href="#i-grid"/></svg></button>
+              <button class="btn btn-sm" id="view-list" type="button" aria-pressed="false" aria-label="List view"><svg class="icon"><use href="#i-list"/></svg></button>
+            </div>
+          </div>
+          <div class="grid" id="grid"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= DASHBOARD ============================= -->
+  <section id="view-dashboard" data-view="dashboard" hidden>
+    <div class="wrap page" id="dashboard"></div>
+  </section>
+
+  <!-- =============================== BOARD =============================== -->
+  <section id="view-board" data-view="board" hidden>
+    <div class="wrap page" id="board"></div>
+  </section>
+
+  <!-- ============================= CONTRIBUTE ============================ -->
+  <section id="view-contribute" data-view="contribute" hidden>
+    <div class="wrap page">
+      <div class="page-head">
+        <p class="eyebrow">Living repository</p>
+        <h1>Contribute a measure</h1>
+        <p>STAC grows through the community. You can submit a new scale or task, a new language version, or a correction. No Git knowledge is needed: the submission form accepts file attachments, and a moderator turns it into a reviewed pull request.</p>
+      </div>
+      <div class="cols-2">
+        <div class="card">
+          <h3>From submission to release</h3>
+          <ol class="steps">
+            <li><div><h3>Open the submission form</h3><p>Fill in acronym, title, section, languages, references and the access tier. Attach the files (zip survey exports such as .qsf, .que or .lss, GitHub does not accept them as single attachments).</p></div></li>
+            <li><div><h3>Automatic pre-check</h3><p>A bot drafts the folder and stac.yml from your form and posts a validation report: missing citations, files not described in the README, unsupported formats, junk inside archives.</p></div></li>
+            <li><div><h3>Curator review</h3><p>A section curator checks the inclusion criteria and opens a pull request. Code owners of the section must approve it.</p></div></li>
+            <li><div><h3>Merge and publish</h3><p>After merging, the catalog, previews and README tables rebuild automatically and the measure appears here within minutes.</p></div></li>
+            <li><div><h3>Versioned release with DOI</h3><p>Each release is archived on Zenodo with a DOI and per-instrument download bundles, so every version stays citable.</p></div></li>
+          </ol>
+          <p style="margin-top:14px;font-size:var(--fs-sm);color:var(--ink-2)">The OSF archive (osf.io/4s9p6) stays online as the frozen, citable state of October 2026. Everything added later appears only here, marked <b>New</b>. Follow additions with the <a href="feed.xml">Atom feed</a> or by watching releases on GitHub.</p>
+          <p style="margin-top:14px"><a class="btn btn-primary" id="submit-link" href="#" target="_blank" rel="noopener"><svg class="icon"><use href="#i-plus"/></svg> Submit a measure</a></p>
+        </div>
+        <div class="panel">
+          <div class="card">
+            <h3>Inclusion criteria</h3>
+            <p class="eyebrow" style="margin-bottom:8px">From Kenett, Silvia &amp; Benedek (2026)</p>
+            <ol style="margin:0;padding-left:20px;display:grid;gap:6px;font-size:var(--fs-sm)">
+              <li>The measure captures constructs relevant to creativity, aesthetics or the arts, or individual differences in personality or cognitive ability of interest in this context.</li>
+              <li>It was published in a peer-reviewed journal with basic evidence of psychometric quality.</li>
+              <li>You have permission to share the materials openly, typically as author of the measure or of a translation. Measures that require permission or a license to use are not included.</li>
+              <li>You provide the materials plus a readme with an overview of the files, administration and scoring, per-language references and confirmation that the measure is free for academic, non-commercial use.</li>
+            </ol>
+          </div>
+          <div class="card">
+            <h3>File naming</h3>
+            <p style="font-size:var(--fs-sm)">Use <code class="mono">ACRONYM_Language[_Platform][_Variant].ext</code>, for example <code class="mono">SSCS_German_Qualtrics.qsf</code> or <code class="mono">HEXACO-PI-R_English_60.docx</code>. The catalog reads language and platform from these tokens.</p>
+          </div>
+          <div class="card">
+            <h3>Supported formats</h3>
+            <p style="font-size:var(--fs-sm)" id="format-support"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== ABOUT =============================== -->
+  <section id="view-about" data-view="about" hidden>
+    <div class="wrap page" id="about">
+      <div class="page-head">
+        <p class="eyebrow">About this archive</p>
+        <h1>About STAC</h1>
+        <p>STAC was created in 2013 by Paul Silvia on the Open Science Framework as "Creativity and Arts Tasks and Scales: Free for Public Use". Mathias Benedek joined as moderator in 2018 and Yoed Kenett in 2024. The archive is supported by APA Division 10 and the Society for the Neuroscience of Creativity.</p>
+      </div>
+      <div class="cols-2">
+        <div class="card">
+          <h3>How to cite</h3>
+          <p style="font-size:var(--fs-sm);margin-bottom:10px">Cite the original source of each instrument version (shown on every instrument page). When appropriate, also cite STAC as the access point:</p>
+          <div class="cite-box"><span id="cite-stac"></span><button class="icon-btn" type="button" data-copy-from="cite-stac" aria-label="Copy citation"><svg class="icon"><use href="#i-copy"/></svg></button></div>
+        </div>
+        <div class="card">
+          <h3>Access badges</h3>
+          <div class="legend-badges" id="badge-legend"></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Who can do what</h3>
+        <p style="font-size:var(--fs-sm);color:var(--ink-2);margin-bottom:10px">Everything committed to the public repository is readable and downloadable by anyone. Materials with restricted access never enter the repository; they are released through access requests.</p>
+        <div class="matrix">
+          <table>
+            <thead><tr><th>Action</th><th>Visitor</th><th>GitHub user</th><th>Contributor</th><th>Curator</th><th>Section maintainer</th><th>Moderator</th></tr></thead>
+            <tbody>
+              <tr><td>Browse, preview, download open files</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+              <tr><td>Send private message or anonymous error report</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+              <tr><td>Post in discussions, open issues, fork</td><td class="no">no</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+              <tr><td>Propose files and metadata (pull request)</td><td class="no">no</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+              <tr><td>Label, triage, moderate public messages</td><td class="no">no</td><td class="no">no</td><td class="no">no</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+              <tr><td>Approve and merge in own section</td><td class="no">no</td><td class="no">no</td><td class="no">no</td><td class="no">no</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+              <tr><td>Read private inbox, grant access requests</td><td class="no">no</td><td class="no">no</td><td class="no">no</td><td class="no">no</td><td class="no">no</td><td class="yes">yes</td></tr>
+              <tr><td>See pseudonymized activity log, manage roles</td><td class="no">no</td><td class="no">no</td><td class="no">no</td><td class="no">no</td><td class="no">no</td><td class="yes">yes</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Privacy in short</h3>
+        <p style="font-size:var(--fs-sm);color:var(--ink-2)">No cookies. Views and downloads are counted with a salted hash of IP address and browser that changes every day; IP addresses and user agents are never stored. If you opt in, a random ID stays in your browser so you can see your own download history under a pseudonym such as "curious-otter-3f9a". Raw events are deleted after 90 days; only daily totals remain. Messages and e-mail addresses go to a private inbox that only moderators can read.</p>
+        <p style="margin-top:10px"><label class="switch"><input type="checkbox" id="optin"> Remember my downloads under a pseudonym on this device</label> <span id="optin-name" class="mono" style="font-size:var(--fs-xs);color:var(--ink-3)"></span></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="dossier-root"></div>
+<div id="tray-root"></div>
+<div id="toast-root" aria-live="polite"></div>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>STAC · Kenett, Silvia &amp; Benedek (2026), <a href="https://doi.org/10.1027/2698-1866/a000140" target="_blank" rel="noopener">doi:10.1027/2698-1866/a000140</a> · Legacy DOI <a href="https://doi.org/10.17605/OSF.IO/4S9P6" target="_blank" rel="noopener">10.17605/OSF.IO/4S9P6</a></span>
+    <span id="build-info" class="mono"></span>
+  </div>
+</footer>
+
+<!-- Libraries are self-hosted (assets/vendor) so the site works offline and
+     sends no visitor data to third-party CDNs. Versions: MiniSearch 7.1.0,
+     pdf.js 3.11.174, highlight.js 11.9.0. -->
+<script src="assets/vendor/minisearch/minisearch.umd.js"></script>
+<script src="assets/vendor/pdfjs/pdf.min.js"></script>
+<script src="assets/vendor/highlight/highlight.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/preview.js"></script>
+<script src="assets/js/charts.js"></script>
+<script src="assets/js/dashboard.js"></script>
+<script src="assets/js/board.js"></script>
+<script src="assets/js/app.js"></script>
+<!-- STAC-BODY-END -->
+</body>
+</html>

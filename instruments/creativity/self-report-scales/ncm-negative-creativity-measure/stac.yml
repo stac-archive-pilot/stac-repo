@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: ncm-negative-creativity-measure
+acronym: NCM
+title: Negative Creativity Measure
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: null
+tags: []
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: Negative Creativity Measure_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: Kapoor, H. (2015). The creative side of the Dark Triad. Creativity Research
+      Journal, 27(1), 58–67. https://doi.org/10.1080/10400419.2014.961775
+references:
+  primary:
+    - Kapoor, H. (2015). The creative side of the Dark Triad. Creativity Research
+      Journal, 27(1), 58–67. https://doi.org/10.1080/10400419.2014.961775
+  further: []
+dois:
+  - null
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 1
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/NCM - Negative Creativity Measure
+  migrated: '2026-10-22'
+version: 1.0.0
+

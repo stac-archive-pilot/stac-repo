@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "Send a private message or anonymous report"
+    url: "https://stac-archive.github.io/stac/#/board?tab=private"
+    about: "For confidential matters, access requests for restricted materials, or reports you do not want to make publicly or under your GitHub name. Goes only to the moderators."
+  - name: "Ask a question (Q&A)"
+    url: "https://github.com/stac-archive/stac/discussions/categories/q-a"
+    about: "How to administer, score or choose a measure, and anything else that is not an error or a submission."
+  - name: "Official legacy archive on OSF"
+    url: "https://osf.io/4s9p6"
+    about: "The original STAC archive (DOI 10.17605/OSF.IO/4S9P6), kept as the citable legacy record."

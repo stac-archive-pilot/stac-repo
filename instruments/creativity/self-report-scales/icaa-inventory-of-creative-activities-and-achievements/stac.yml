@@ -1,0 +1,137 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: icaa-inventory-of-creative-activities-and-achievements
+acronym: ICAA
+title: Inventory of Creative Activities and Achievements
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: The ICAA was first developed and published by Diedrich et al. (2018), and
+  it is a popular measure of creative achievements and engagement in creative activities.
+  The ICAA is available in English, French, German, and Japanese. A short form of
+  the German version is available.
+tags:
+  - creative-achievement
+  - creative-behavior
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: ICAA-Japanese.docx
+    format: docx
+    languages:
+      - ja
+    platform: null
+    role: instrument
+    citation: null
+  - path: ICAA-Japanese.pdf
+    format: pdf
+    languages:
+      - ja
+    platform: null
+    role: instrument
+    citation: null
+  - path: ICAA_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Diedrich, J., Jauk, E., Silvia, P.J., Gredlein, J.M., Neubauer, A.C.,
+      & Benedek, M. (2018). Assessment of real-life creativity: The Inventory of Creative
+      Activities and Achievements (ICAA). Psychology of Aesthetics, Creativity, and
+      the Arts, 12, 304-316. doi: 10.1037/aca0000137'
+  - path: ICAA_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Diedrich, J., Jauk, E., Silvia, P.J., Gredlein, J.M., Neubauer, A.C.,
+      & Benedek, M. (2018). Assessment of real-life creativity: The Inventory of Creative
+      Activities and Achievements (ICAA). Psychology of Aesthetics, Creativity, and
+      the Arts, 12, 304-316. doi: 10.1037/aca0000137'
+  - path: ICAA_French.docx
+    format: docx
+    languages:
+      - fr
+    platform: null
+    role: instrument
+    citation: null
+  - path: ICAA_French.pdf
+    format: pdf
+    languages:
+      - fr
+    platform: null
+    role: instrument
+    citation: null
+  - path: ICAA_German.docx
+    format: docx
+    languages:
+      - de
+    platform: null
+    role: instrument
+    citation: 'Diedrich, J., Jauk, E., Silvia, P.J., Gredlein, J.M., Neubauer, A.C.,
+      & Benedek, M. (2018). Assessment of real-life creativity: The Inventory of Creative
+      Activities and Achievements (ICAA). Psychology of Aesthetics, Creativity, and
+      the Arts, 12, 304-316. doi: 10.1037/aca0000137'
+  - path: ICAA_German.pdf
+    format: pdf
+    languages:
+      - de
+    platform: null
+    role: instrument
+    citation: 'Diedrich, J., Jauk, E., Silvia, P.J., Gredlein, J.M., Neubauer, A.C.,
+      & Benedek, M. (2018). Assessment of real-life creativity: The Inventory of Creative
+      Activities and Achievements (ICAA). Psychology of Aesthetics, Creativity, and
+      the Arts, 12, 304-316. doi: 10.1037/aca0000137'
+  - path: S-ICA_German.docx
+    format: docx
+    languages:
+      - de
+    platform: null
+    role: instrument
+    citation: 'Steger, D., Weiss, S., & Wilhelm, O. (2022). The short inventory of
+      creative activities (S-ICA): Compiling a short scale using ant colony optimization.
+      Creativity Research Journal, 1-16.https://doi.org/10.1080/10400419.2022.2128574'
+  - path: S-ICA_German.pdf
+    format: pdf
+    languages:
+      - de
+    platform: null
+    role: instrument
+    citation: 'Steger, D., Weiss, S., & Wilhelm, O. (2022). The short inventory of
+      creative activities (S-ICA): Compiling a short scale using ant colony optimization.
+      Creativity Research Journal, 1-16.https://doi.org/10.1080/10400419.2022.2128574'
+references:
+  primary:
+    - 'Diedrich, J., Jauk, E., Silvia, P.J., Gredlein, J.M., Neubauer, A.C., & Benedek,
+      M. (2018). Assessment of real-life creativity: The Inventory of Creative Activities
+      and Achievements (ICAA). Psychology of Aesthetics, Creativity, and the Arts,
+      12, 304-316. doi: 10.1037/aca0000137'
+    - 'Steger, D., Weiss, S., & Wilhelm, O. (2022). The short inventory of creative
+      activities (S-ICA): Compiling a short scale using ant colony optimization. Creativity
+      Research Journal, 1-16.https://doi.org/10.1080/10400419.2022.2128574'
+  further: []
+dois:
+  - null
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 3
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/ICAA – Inventory of Creative Activities
+    and Achievements
+  migrated: '2026-10-22'
+version: 1.0.0
+

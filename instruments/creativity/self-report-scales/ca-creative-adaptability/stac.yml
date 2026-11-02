@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: ca-creative-adaptability
+acronym: CA
+title: Creative Adaptability
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: null
+tags: []
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: Creative Adaptability Scale_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Orkibi, H. (2021). Creative adaptability: Conceptual framework, measurement,
+      and outcomes in times of crisis. Frontiers in Psychology, 11, 588172. https://doi.org/10.3389/fpsyg.2020.588172'
+references:
+  primary:
+    - 'Orkibi, H. (2021). Creative adaptability: Conceptual framework, measurement,
+      and outcomes in times of crisis. Frontiers in Psychology, 11, 588172. https://doi.org/10.3389/fpsyg.2020.588172'
+  further: []
+dois:
+  - null
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 1
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/CA – Creative Adaptability
+  migrated: '2026-10-22'
+version: 1.0.0
+

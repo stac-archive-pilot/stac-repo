@@ -1,0 +1,98 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: bicb-biographical-inventory-of-creative-behaviors
+acronym: BICB
+title: Biographical Inventory of Creative Behaviors
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: This scale was developed by Batey (2007), and it has emerged as a popular
+  scale for measuring engagement in everyday creative behaviors. See below for additional
+  details.
+tags:
+  - creative-behavior
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: BICB_English.doc
+    format: doc
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: Batey, M. (2007). A psychometric investigation of everyday creativity.
+      Unpublished Doctoral Thesis. University College, London.
+  - path: BICB_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: Batey, M. (2007). A psychometric investigation of everyday creativity.
+      Unpublished Doctoral Thesis. University College, London.
+  - path: BICB_English_MediaLab.que
+    format: que
+    languages:
+      - en
+    platform: medialab
+    role: instrument
+    citation: Batey, M. (2007). A psychometric investigation of everyday creativity.
+      Unpublished Doctoral Thesis. University College, London.
+  - path: BICB_French.docx
+    format: docx
+    languages:
+      - fr
+    platform: null
+    role: instrument
+    citation: null
+  - path: BICB_French.pdf
+    format: pdf
+    languages:
+      - fr
+    platform: null
+    role: instrument
+    citation: null
+references:
+  primary:
+    - Batey, M. (2007). A psychometric investigation of everyday creativity. Unpublished
+      Doctoral Thesis. University College, London.
+  further:
+    - 'Silvia, P. J., Rodriguez, R. M., Beaty, R. E., Frith, E., Kaufman, J. C., Loprinzi,
+      P., & Reiter-Palmon, R. (2021). Measuring everyday creativity: A Rasch model
+      analysis of the Biographical Inventory of Creative Behaviors (BICB) scale. Thinking
+      Skills and Creativity, 39, 100797.'
+    - 'Silvia, P. J., Wigert, B., Reiter-Palmon, R., & Kaufman, J. C. (2012). Assessing
+      creativity with self-report scales: A review and empirical evaluation. Psychology
+      of Aesthetics, Creativity, and the Arts, 6(1), 19–34. https://doi.org/10.1037/a0024071'
+dois:
+  - 10.1037/a0024071
+administration: |-
+  The scale was reported in Batey's dissertation:
+
+  Batey, M. (2007). A psychometric investigation of everyday creativity. Unpublished Doctoral Thesis. University College, London.
+
+  Researchers interested in using this scale can find psychometric evaluations and discussions in the following articles:
+
+  Silvia, P. J., Rodriguez, R. M., Beaty, R. E., Frith, E., Kaufman, J. C., Loprinzi, P., & Reiter-Palmon, R. (2021). Measuring everyday creativity: A Rasch model analysis of the Biographical Inventory of Creative Behaviors (BICB) scale. Thinking Skills and Creativity, 39, 100797.
+
+  Silvia, P. J., Wigert, B., Reiter-Palmon, R., & Kaufman, J. C. (2012). Assessing creativity with self-report scales: A review and empirical evaluation. Psychology of Aesthetics, Creativity, and the Arts, 6(1), 19–34. https://doi.org/10.1037/a0024071
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 2
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/BICB – Biographical Inventory of Creative
+    Behaviors
+  migrated: '2026-10-22'
+version: 1.0.0
+

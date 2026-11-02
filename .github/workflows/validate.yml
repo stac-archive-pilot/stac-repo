@@ -1,0 +1,108 @@
+# Validates the archive on every pull request and every push.
+#
+# The job id "validate" is the required status check in
+# governance/rulesets/main-protection.json. Do not rename the job, and do not
+# add path filters to the pull_request trigger: a skipped required check
+# blocks merging.
+#
+# scripts/07_validate.R exits non-zero on errors. It may write a report into
+# $STAC_REPORT_DIR (Markdown summary: validation-report.md, plus any other
+# files); everything in that directory is uploaded as an artifact, and the
+# Markdown summary is shown on the run page.
+
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  # Also used by intake.yml to validate bot-created pull requests (events
+  # caused by GITHUB_TOKEN do not trigger pull_request runs, but
+  # workflow_dispatch does).
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      STAC_REPORT_DIR: _reports
+      R_KEEP_PKG_SOURCE: "no"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+          use-public-rspm: true
+
+      - name: Install R packages
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          # No DESCRIPTION file in this repository, so packages are listed here.
+          # Keep in sync with build-deploy.yml, traffic-archive.yml,
+          # release-bundles.yml and intake.yml.
+          packages: |
+            any::dplyr
+            any::purrr
+            any::tidyr
+            any::stringr
+            any::jsonlite
+            any::yaml
+            any::glue
+            any::fs
+            any::readr
+            any::tibble
+            any::haven
+            any::xml2
+            any::digest
+            any::commonmark
+            any::readxl
+            any::httr2
+            any::cli
+            any::lubridate
+            any::jsonvalidate
+          cache-version: 1
+
+      - name: Validate archive
+        id: validate
+        shell: bash
+        run: |
+          mkdir -p "$STAC_REPORT_DIR"
+          set -o pipefail
+          Rscript scripts/07_validate.R 2>&1 | tee "$STAC_REPORT_DIR/validate.log"
+
+      - name: Add report to run summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f "$STAC_REPORT_DIR/validation-report.md" ]; then
+            cat "$STAC_REPORT_DIR/validation-report.md" >> "$GITHUB_STEP_SUMMARY"
+          elif [ -f "$STAC_REPORT_DIR/validate.log" ]; then
+            {
+              echo "## Validation log (last 200 lines)"
+              echo '```'
+              tail -n 200 "$STAC_REPORT_DIR/validate.log"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-report
+          path: ${{ env.STAC_REPORT_DIR }}/
+          if-no-files-found: ignore
+          retention-days: 30

@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=../../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: subjective-scoring-guidelines
+acronym: null
+title: Subjective Scoring Guidelines
+section: creativity
+subsection: methods-and-scoring
+kind: method
+summary: null
+tags:
+  - scoring-method
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: Guidelines_for_Subjective_Scoring_English_Silvia.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: scoring
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 2
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Tasks/Methods & Scoring/Subjective Scoring Guidelines
+  migrated: '2026-10-22'
+version: 1.0.0
+

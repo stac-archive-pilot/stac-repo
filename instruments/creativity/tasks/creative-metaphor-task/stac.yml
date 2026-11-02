@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: creative-metaphor-task
+acronym: null
+title: Creative Metaphor Task
+section: creativity
+subsection: tasks
+kind: task
+summary: null
+tags:
+  - metaphor
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: Creative Metaphor Task_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Silvia, P. J., & Beaty, R. E. (2012). Making creative metaphors: The
+      importance of fluid intelligence for creative thought. Intelligence, 40, 343-351.'
+  - path: Creative Metaphor Task_Englsih.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Silvia, P. J., & Beaty, R. E. (2012). Making creative metaphors: The
+      importance of fluid intelligence for creative thought. Intelligence, 40, 343-351.'
+  - path: Creative Metaphor Tasks_English_MediaLab.que
+    format: que
+    languages:
+      - en
+    platform: medialab
+    role: instrument
+    citation: null
+references:
+  primary:
+    - 'Silvia, P. J., & Beaty, R. E. (2012). Making creative metaphors: The importance
+      of fluid intelligence for creative thought. Intelligence, 40, 343-351.'
+  further: []
+dois:
+  - null
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 2
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Tasks/Creative Metaphor Task
+  migrated: '2026-10-22'
+version: 1.0.0
+

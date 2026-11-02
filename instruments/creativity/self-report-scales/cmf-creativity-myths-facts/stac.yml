@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: cmf-creativity-myths-facts
+acronym: CMF
+title: Creativity Myths-Facts
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: This folder contains files related to the Creativity Myths & Facts scale
+tags:
+  - myths-beliefs
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: CMF_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Benedek, M., Karstendiek, M., Ceh, S. M., Grabner, R. H., Krammer,
+      G., Lebuda, I., Silvia, P. J., Cotter, K. N., Li, Y., Hu, W., Martskvishvili,
+      K., Kaufman, J. C. (2021). Creativity myths: Prevalence and correlates of misconceptions
+      on creativity. Personality and Individual Differences, 182, 111068. https://doi.org/10.1016/j.paid.2021.111068'
+  - path: CMF_German.docx
+    format: docx
+    languages:
+      - de
+    platform: null
+    role: instrument
+    citation: 'Benedek, M., Karstendiek, M., Ceh, S. M., Grabner, R. H., Krammer,
+      G., Lebuda, I., Silvia, P. J., Cotter, K. N., Li, Y., Hu, W., Martskvishvili,
+      K., Kaufman, J. C. (2021). Creativity myths: Prevalence and correlates of misconceptions
+      on creativity. Personality and Individual Differences, 182, 111068. https://doi.org/10.1016/j.paid.2021.111068'
+  - path: CMF_Japanese.pdf
+    format: pdf
+    languages:
+      - ja
+    platform: null
+    role: instrument
+    citation: null
+references:
+  primary:
+    - 'Benedek, M., Karstendiek, M., Ceh, S. M., Grabner, R. H., Krammer, G., Lebuda,
+      I., Silvia, P. J., Cotter, K. N., Li, Y., Hu, W., Martskvishvili, K., Kaufman,
+      J. C. (2021). Creativity myths: Prevalence and correlates of misconceptions
+      on creativity. Personality and Individual Differences, 182, 111068. https://doi.org/10.1016/j.paid.2021.111068'
+  further: []
+dois:
+  - 10.1016/j.paid.2021.111068
+administration: "###Administration\n•\tAll 30 items are presented in randomized order\n•\tInstruction:
+  Please indicate for each statement if you think it is right or wrong, or otherwise
+  choose \"Don't know\",\n•\tResponse format: Correct, Incorrect, Don’t know\n###Scoring\n•\tEndorsement
+  creativity myths = (#myths = agreed) + 0.5 * #(myths = don’t know)\n•\tEndorsement
+  creativity facts = (#facts = agreed) + 0.5 * #(facts = don’t know)\n•\tCreativity
+  knowledge = Endorsement creativity facts - Endorsement creativity myths"
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/CMF - Creativity Myths-Facts
+  migrated: '2026-10-22'
+version: 1.0.0
+

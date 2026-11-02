@@ -1,0 +1,10 @@
+# Copy to .dev.vars for `npx wrangler dev`. NEVER commit .dev.vars.
+# Production values are set with `npx wrangler secret put <NAME>`.
+PSEUDONYM_SECRET=replace-with-at-least-32-random-bytes-hex
+# Cloudflare's documented Turnstile testing secret that always passes (dev only):
+TURNSTILE_SECRET=1x0000000000000000000000000000000AA
+GITHUB_TOKEN=
+ADMIN_TOKEN=replace-with-a-long-random-string
+# Optional:
+# DOWNLOAD_TOKEN_SECRET=
+# GITHUB_DISCUSSIONS_TOKEN=

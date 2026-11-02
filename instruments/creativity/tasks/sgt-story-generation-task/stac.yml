@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: sgt-story-generation-task
+acronym: SGT
+title: Story Generation Task
+section: creativity
+subsection: tasks
+kind: task
+summary: In the SGT, participants write a 5 sentence short story to a prompt of three
+  cue words. The richness, or originality of the language used in the short story
+  can be automatically evaluated via the DSI tool.
+tags:
+  - storytelling
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: Howard-Jones et al., 2005.pdf
+    format: pdf
+    languages: []
+    platform: null
+    role: reference
+    citation: null
+  - path: Johnson et al., 2023.pdf
+    format: pdf
+    languages: []
+    platform: null
+    role: reference
+    citation: null
+  - path: Story_Generation_Task.qsf
+    format: qsf
+    languages: []
+    platform: qualtrics
+    role: instrument
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: 'The SGT can be automatically scored by the DSI tool (Johnson et al.,
+  2023) which can be achieved via: https://cap.ist.psu.edu/dsi'
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Tasks/SGT - Story Generation Task
+  migrated: '2026-10-22'
+version: 1.0.0
+

@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: eci-epistemic-curiosity-inventory
+acronym: ECI
+title: Epistemic Curiosity Inventory
+section: personality-and-individual-differences
+subsection: null
+kind: scale
+summary: This inventory measures epistemic curiosity.
+tags:
+  - curiosity
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: Epistemic_curiosity.qsf
+    format: qsf
+    languages: []
+    platform: qualtrics
+    role: instrument
+    citation: null
+  - path: Litman et al., 2003.pdf
+    format: pdf
+    languages: []
+    platform: null
+    role: reference
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: Scoring is described in the paper presenting the inventory.
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Personality and Individual Differences/ECI - Epistemic Curiosity Inventory
+  migrated: '2026-10-22'
+version: 1.0.0
+

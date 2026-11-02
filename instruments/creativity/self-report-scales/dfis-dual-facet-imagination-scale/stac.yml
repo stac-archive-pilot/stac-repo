@@ -1,0 +1,92 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: dfis-dual-facet-imagination-scale
+acronym: DFIS
+title: Dual Facet Imagination Scale
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: Developed by Sassenberg et al. (2023), this scale proposes two facets of
+  imagination that link to the BFAS Openness and Intellect aspects. Additional self-report
+  imagination scales are available in the STAC archive.
+tags:
+  - imagery
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: DFIS_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Sassenberg, T. A., Condon, D. M., Christensen, A. P., & DeYoung, C.
+      G. (2023). Imagination as a facet of openness/intellect: A new scale differentiating
+      experiential simulation and conceptual Innovation. *Creativity Research Journal,
+      35*(4), 583–595. https://doi.org/10.1080/10400419.2023.2177810'
+  - path: DFIS_English.qsf
+    format: qsf
+    languages:
+      - en
+    platform: qualtrics
+    role: instrument
+    citation: 'Sassenberg, T. A., Condon, D. M., Christensen, A. P., & DeYoung, C.
+      G. (2023). Imagination as a facet of openness/intellect: A new scale differentiating
+      experiential simulation and conceptual Innovation. *Creativity Research Journal,
+      35*(4), 583–595. https://doi.org/10.1080/10400419.2023.2177810'
+  - path: DFIS_German.docx
+    format: docx
+    languages:
+      - de
+    platform: null
+    role: instrument
+    citation: Biesok, A., Apel, A., Amelie Richter, I., & Ziegler, M. (2026). Psychometric
+      properties of the German version of the Dual Facet Imagination Scale (DFIS).
+      Psychological Test Adaptation and Development, 7, 266–278. https://doi.org/10.1027/2698-1866/a000139
+  - path: DFIS_Turkish.docx
+    format: docx
+    languages:
+      - tr
+    platform: null
+    role: instrument
+    citation: Ay, T. & Kalı Soyer, M. (2025). The Turkish version of the Dual Facet
+      Imagination Scale (DFIS) and its relationship with Openness. Thinking Skills
+      and Creativity, 58, 101903. https://doi.org/10.1016/j.tsc.2025.101903
+references:
+  primary:
+    - 'Sassenberg, T. A., Condon, D. M., Christensen, A. P., & DeYoung, C. G. (2023).
+      Imagination as a facet of openness/intellect: A new scale differentiating experiential
+      simulation and conceptual Innovation. *Creativity Research Journal, 35*(4),
+      583–595. https://doi.org/10.1080/10400419.2023.2177810'
+    - Biesok, A., Apel, A., Amelie Richter, I., & Ziegler, M. (2026). Psychometric
+      properties of the German version of the Dual Facet Imagination Scale (DFIS).
+      Psychological Test Adaptation and Development, 7, 266–278. https://doi.org/10.1027/2698-1866/a000139
+    - Ay, T. & Kalı Soyer, M. (2025). The Turkish version of the Dual Facet Imagination
+      Scale (DFIS) and its relationship with Openness. Thinking Skills and Creativity,
+      58, 101903. https://doi.org/10.1016/j.tsc.2025.101903
+  further: []
+dois:
+  - 10.1080/10400419.2023.2177810
+  - 10.1027/2698-1866/a000139
+  - 10.1016/j.tsc.2025.101903
+administration: See the articles below for details on administration and scoring.
+  The QSF file is recommended for Qualtrics users.
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/DFIS – Dual Facet Imagination Scale
+  migrated: '2026-10-22'
+version: 1.0.0
+

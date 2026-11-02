@@ -1,0 +1,118 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: k-docs-kaufman-domains-of-creativity-scale
+acronym: K-DOCS
+title: Kaufman Domains of Creativity Scale
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: The scale was first published by Kaufman (2012), and it has been widely used
+  and translated since then. See below for additional details.
+tags:
+  - creative-domains
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: KDOCS_Arabic.docx
+    format: docx
+    languages:
+      - ar
+    platform: null
+    role: instrument
+    citation: null
+  - path: KDOCS_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Kaufman, J. C. (2012). Counting the muses: Development of the Kaufman
+      Domains of Creativity Scale (K-DOCS). Psychology of Aesthetics, Creativity,
+      and the Arts, 6(4), 298–308. https://doi.org/10.1037/a0029751'
+  - path: KDOCS_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Kaufman, J. C. (2012). Counting the muses: Development of the Kaufman
+      Domains of Creativity Scale (K-DOCS). Psychology of Aesthetics, Creativity,
+      and the Arts, 6(4), 298–308. https://doi.org/10.1037/a0029751'
+  - path: KDOCS_French.docx
+    format: docx
+    languages:
+      - fr
+    platform: null
+    role: instrument
+    citation: null
+  - path: KDOCS_Korean.xlsx
+    format: xlsx
+    languages:
+      - ko
+    platform: null
+    role: instrument
+    citation: null
+  - path: KDOCS_Russian.pdf
+    format: pdf
+    languages:
+      - ru
+    platform: null
+    role: instrument
+    citation: null
+  - path: KDOCS_Turkish.pdf
+    format: pdf
+    languages:
+      - tr
+    platform: null
+    role: instrument
+    citation: null
+references:
+  primary:
+    - 'Kaufman, J. C. (2012). Counting the muses: Development of the Kaufman Domains
+      of Creativity Scale (K-DOCS). Psychology of Aesthetics, Creativity, and the
+      Arts, 6(4), 298–308. https://doi.org/10.1037/a0029751'
+  further:
+    - 'Acar, S., Cevik, E., Fesli, E., Bozkurt, R. N., & Kaufman, J. C. (2024). Testing
+      the domain specificity of creativity with Kaufman Domains of Creativity Scale:
+      A meta‐analytic confirmatory factor analysis. The Journal of Creative Behavior,
+      58(1), 171-189.'
+    - 'Kapoor, H., Reiter-Palmon, R., & Kaufman, J. C. (2021). Norming the muses:
+      Establishing the psychometric properties of the Kaufman Domains of Creativity
+      Scale. Journal of Psychoeducational Assessment, 39(6), 680-693.'
+    - 'McKay, A. S., Karwowski, M., & Kaufman, J. C. (2017). Measuring the muses:
+      Validating the Kaufman Domains of Creativity Scale (K-DOCS). Psychology of Aesthetics,
+      Creativity, and the Arts, 11(2), 216–230. https://doi.org/10.1037/aca0000074'
+dois:
+  - 10.1037/a0029751
+  - 10.1037/aca0000074
+administration: |-
+  This scale was first reported by Kaufman (2012):
+
+  Kaufman, J. C. (2012). Counting the muses: Development of the Kaufman Domains of Creativity Scale (K-DOCS). Psychology of Aesthetics, Creativity, and the Arts, 6(4), 298–308. https://doi.org/10.1037/a0029751
+
+  Researchers can find additional psychometric information about the scale in these articles:
+
+  Acar, S., Cevik, E., Fesli, E., Bozkurt, R. N., & Kaufman, J. C. (2024). Testing the domain specificity of creativity with Kaufman Domains of Creativity Scale: A meta‐analytic confirmatory factor analysis. The Journal of Creative Behavior, 58(1), 171-189.
+
+  Kapoor, H., Reiter-Palmon, R., & Kaufman, J. C. (2021). Norming the muses: Establishing the psychometric properties of the Kaufman Domains of Creativity Scale. Journal of Psychoeducational Assessment, 39(6), 680-693.
+
+  McKay, A. S., Karwowski, M., & Kaufman, J. C. (2017). Measuring the muses: Validating the Kaufman Domains of Creativity Scale (K-DOCS). Psychology of Aesthetics, Creativity, and the Arts, 11(2), 216–230. https://doi.org/10.1037/aca0000074
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 5
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/K-DOCS – Kaufman Domains of Creativity Scale
+  migrated: '2026-10-22'
+version: 1.0.0
+

@@ -1,0 +1,18 @@
+{
+  "title": "STAC: Scales and Tasks for Art and Creativity Assessment",
+  "upload_type": "dataset",
+  "description": "<p>Curated, open archive of scales and tasks for research on creativity, aesthetics and the arts, plus individual-differences measures commonly used alongside them. Each release contains all instrument files (unchanged author versions), README and machine-readable stac.yml metadata. Please cite the original source of each instrument version.</p>",
+  "creators": [
+    {"name": "Benedek, Mathias", "affiliation": "University of Graz", "orcid": "0000-0001-6258-4476"},
+    {"name": "Kenett, Yoed N.", "affiliation": "Technion - Israel Institute of Technology", "orcid": "0000-0003-3872-7689"},
+    {"name": "Silvia, Paul J.", "affiliation": "University of North Carolina at Greensboro", "orcid": "0000-0003-4597-328X"}
+  ],
+  "keywords": ["aesthetics", "arts", "creative achievement", "creativity", "divergent thinking", "humor", "imagination", "individual differences", "innovation", "MediaLab", "metaphor", "open materials", "personality", "Qualtrics", "questionnaires", "research materials"],
+  "related_identifiers": [
+    {"identifier": "10.1027/2698-1866/a000140", "relation": "isDocumentedBy", "scheme": "doi", "resource_type": "publication-article"},
+    {"identifier": "10.17605/OSF.IO/4S9P6", "relation": "isNewVersionOf", "scheme": "doi"}
+  ],
+  "communities": [{"identifier": "stac"}],
+  "access_right": "open",
+  "notes": "Access conditions are set per instrument (see stac.yml access.tier). Default: free for academic and non-commercial use."
+}

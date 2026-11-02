@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: lol-loathing-of-legerdemain-magic-attitudes-scale
+acronym: LOL
+title: Loathing of Legerdemain Magic Attitudes Scale
+section: art-and-aesthetics
+subsection: null
+kind: scale
+summary: null
+tags:
+  - magic
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: LOL_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: Silvia, P. J., Greengross, G., Karwowski, M., Rodriguez, R. M., Crasson,
+      S. J. (2020). Who hates magic? Exploring the loathing of legerdemain.Unpublished
+      preprint.
+  - path: LOL_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: Silvia, P. J., Greengross, G., Karwowski, M., Rodriguez, R. M., Crasson,
+      S. J. (2020). Who hates magic? Exploring the loathing of legerdemain.Unpublished
+      preprint.
+  - path: LOL_English_Qualtrics.qsf
+    format: qsf
+    languages:
+      - en
+    platform: qualtrics
+    role: instrument
+    citation: null
+  - path: LOL_Polish.docx
+    format: docx
+    languages:
+      - pl
+    platform: null
+    role: instrument
+    citation: Silvia, P. J., Greengross, G., Karwowski, M., Rodriguez, R. M., Crasson,
+      S. J. (2020). Who hates magic? Exploring the loathing of legerdemain.Unpublished
+      preprint.
+  - path: LOL_Polish.pdf
+    format: pdf
+    languages:
+      - pl
+    platform: null
+    role: instrument
+    citation: Silvia, P. J., Greengross, G., Karwowski, M., Rodriguez, R. M., Crasson,
+      S. J. (2020). Who hates magic? Exploring the loathing of legerdemain.Unpublished
+      preprint.
+references:
+  primary:
+    - Silvia, P. J., Greengross, G., Karwowski, M., Rodriguez, R. M., Crasson, S.
+      J. (2020). Who hates magic? Exploring the loathing of legerdemain.Unpublished
+      preprint.
+  further: []
+dois:
+  - null
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 2
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Art and Aesthetics/LOL – Loathing of Legerdemain Magic Attitudes Scale
+  migrated: '2026-10-22'
+version: 1.0.0
+

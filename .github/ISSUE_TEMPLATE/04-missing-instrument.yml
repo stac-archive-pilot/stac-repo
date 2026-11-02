@@ -1,0 +1,100 @@
+name: "Request a missing instrument"
+description: "Suggest a measure that should be in STAC but is not. Curators and the community will try to reach its authors."
+title: "[Request]: "
+labels: ["type:missing-instrument", "status:needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to suggest a measure you would like to see in STAC.
+
+        **Are you an author or translator of the measure?** Then please use the **Submit a new instrument** form directly, it is the fastest way to get it archived.
+
+        STAC can only include measures whose authors agree to share them for free academic and non-commercial use. Requests for measures that need a licence or permission are welcome, but they can only be added if the rights holders agree.
+
+  - type: input
+    id: instrument
+    attributes:
+      label: "Name and acronym"
+      placeholder: "e.g. Creative Achievement Questionnaire (CAQ)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: section
+    attributes:
+      label: "Section"
+      options:
+        - "Art and aesthetics"
+        - "Creativity: self-report scales"
+        - "Creativity: tasks"
+        - "Creativity: methods and scoring"
+        - "Personality and individual differences"
+        - "Not sure"
+    validations:
+      required: true
+
+  - type: input
+    id: publication_doi
+    attributes:
+      label: "Original publication (DOI or link)"
+      placeholder: "https://doi.org/..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: "Why should STAC include it?"
+      description: "What does it measure, and how is it used in research on creativity, aesthetics or the arts?"
+    validations:
+      required: true
+
+  - type: input
+    id: languages
+    attributes:
+      label: "Known language versions"
+      placeholder: "e.g. English, German (Author, 2019), Spanish (Author, 2021)"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: availability
+    attributes:
+      label: "How is the measure available today?"
+      options:
+        - "Printed in the publication (items in an appendix or table)"
+        - "Available from the authors on request"
+        - "On an author or lab website"
+        - "Requires permission or a licence"
+        - "Sold commercially"
+        - "I do not know"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: role
+    attributes:
+      label: "Your connection to the measure"
+      options:
+        - "No connection (I would like to use it)"
+        - "I know the authors and can ask them"
+        - "I am an author but cannot submit the files myself"
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: "Anything else?"
+      description: "Please do **not** post other people's email addresses here. If you can introduce us to the authors, say so and a curator will contact you."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: "Before submitting"
+      options:
+        - label: "I searched the STAC catalog and the open issues, and the measure is neither archived nor requested yet."
+          required: true

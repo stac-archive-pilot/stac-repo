@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: pai-product-aesthetics-inventory
+acronym: PAI
+title: Product Aesthetics Inventory
+section: art-and-aesthetics
+subsection: null
+kind: scale
+summary: This tool was originally developed by Thielsch et al. (2022). It has a standard
+  form and a short form (marked by the -S file name).
+tags:
+  - aesthetics
+  - product-design
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: PAI-S_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Thielsch, M. T., Forthmann, B., Brau, H., & Eisbach, S. (2024). All
+      that glitters is gold: Development and validation of the Product Aesthetics
+      Inventory (PAI). *Psychology of Aesthetics, Creativity, and the Arts, 18*(5),
+      716-736.'
+  - path: PAI-S_German.docx
+    format: docx
+    languages:
+      - de
+    platform: null
+    role: instrument
+    citation: 'Thielsch, M. T., Forthmann, B., Brau, H., & Eisbach, S. (2024). All
+      that glitters is gold: Development and validation of the Product Aesthetics
+      Inventory (PAI). *Psychology of Aesthetics, Creativity, and the Arts, 18*(5),
+      716-736.'
+  - path: PAI_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Thielsch, M. T., Forthmann, B., Brau, H., & Eisbach, S. (2024). All
+      that glitters is gold: Development and validation of the Product Aesthetics
+      Inventory (PAI). *Psychology of Aesthetics, Creativity, and the Arts, 18*(5),
+      716-736.'
+  - path: PAI_German.docx
+    format: docx
+    languages:
+      - de
+    platform: null
+    role: instrument
+    citation: 'Thielsch, M. T., Forthmann, B., Brau, H., & Eisbach, S. (2024). All
+      that glitters is gold: Development and validation of the Product Aesthetics
+      Inventory (PAI). *Psychology of Aesthetics, Creativity, and the Arts, 18*(5),
+      716-736.'
+references:
+  primary:
+    - 'Thielsch, M. T., Forthmann, B., Brau, H., & Eisbach, S. (2024). All that glitters
+      is gold: Development and validation of the Product Aesthetics Inventory (PAI).
+      *Psychology of Aesthetics, Creativity, and the Arts, 18*(5), 716-736.'
+  further: []
+dois: []
+administration: See the references below for information on scoring the PAI.
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Art and Aesthetics/PAI – Product Aesthetics Inventory
+  migrated: '2026-10-22'
+version: 1.0.0
+

@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stac-archive.github.io/stac/schema/stac-instrument.schema.json",
+  "title": "STAC instrument metadata (stac.yml)",
+  "description": "Machine-readable metadata of one STAC instrument folder. README.md remains the human-readable documentation.",
+  "type": "object",
+  "required": ["schema_version", "id", "title", "section", "kind", "access", "files"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": 1},
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "Equals the folder name."},
+    "acronym": {"type": ["string", "null"], "maxLength": 40},
+    "title": {"type": "string", "minLength": 3},
+    "section": {"enum": ["art-and-aesthetics", "creativity", "personality-and-individual-differences"]},
+    "subsection": {"type": ["string", "null"], "enum": [null, "self-report-scales", "tasks", "methods-and-scoring"]},
+    "kind": {"enum": ["scale", "task", "method"]},
+    "summary": {"type": ["string", "null"]},
+    "tags": {"type": "array", "items": {"type": "string", "pattern": "^[a-z0-9-]+$"}, "uniqueItems": true},
+    "tags_curated": {"type": "boolean"},
+    "access": {
+      "type": "object",
+      "required": ["tier", "statement"],
+      "additionalProperties": false,
+      "properties": {
+        "tier": {"enum": ["open", "academic-noncommercial", "research-only", "commercial-with-permission", "permission-required", "restricted"]},
+        "statement": {"type": "string"},
+        "source": {"type": "string"},
+        "verified": {"type": "boolean"},
+        "verified_by": {"type": ["string", "null"]},
+        "verified_on": {"type": ["string", "null"], "format": "date"},
+        "license_url": {"type": ["string", "null"], "format": "uri"},
+        "rights_holder": {"type": ["string", "null"]}
+      }
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path"],
+        "additionalProperties": false,
+        "properties": {
+          "path": {"type": "string", "description": "File name inside the instrument folder (unchanged OSF name for migrated files)."},
+          "format": {"type": "string"},
+          "languages": {"type": "array", "items": {"type": "string", "pattern": "^[a-z]{2,3}$"}},
+          "platform": {"type": ["string", "null"]},
+          "role": {"enum": ["instrument", "scoring", "instructions", "manual", "reference", "stimuli", "software", "data", "figure", "template"]},
+          "citation": {"type": ["string", "null"]},
+          "variant": {"type": ["string", "null"], "description": "e.g. short form, 60-item version"},
+          "external": {"type": ["boolean", "null"], "description": "true when the file is not in the public repo (restricted tiers, access request)."},
+          "note": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "references": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "primary": {"type": "array", "items": {"type": "string"}},
+        "further": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "dois": {"type": "array", "items": {"type": "string", "pattern": "^10\\.\\d{4,9}/\\S+$"}},
+    "administration": {"type": ["string", "null"]},
+    "contributors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {"type": "string"},
+          "orcid": {"type": ["string", "null"], "pattern": "^\\d{4}-\\d{4}-\\d{4}-\\d{3}[\\dX]$"},
+          "role": {"type": ["string", "null"]},
+          "affiliation": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "properties": {
+        "stage": {"enum": ["migrated-draft", "in-review", "published", "deprecated"]},
+        "readme_present": {"type": "boolean"},
+        "readme_na_fields": {"type": ["integer", "null"]}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "osf_project": {"type": "string"},
+        "osf_path": {"type": ["string", "null"]},
+        "migrated": {"type": ["string", "null"], "description": "date of the 1:1 copy from OSF (legacy instruments only)"},
+        "added": {"type": ["string", "null"], "description": "date the instrument was added on GitHub (instruments that never existed on OSF)"},
+        "derived_from": {"type": ["string", "null"], "description": "id of the instrument this one adapts or translates"}
+      }
+    },
+    "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"}
+  }
+}

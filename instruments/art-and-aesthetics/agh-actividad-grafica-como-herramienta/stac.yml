@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: agh-actividad-grafica-como-herramienta
+acronym: AGH
+title: Actividad Gráfica como Herramienta
+section: art-and-aesthetics
+subsection: null
+kind: scale
+summary: null
+tags: []
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: AGH_Spanish.pdf
+    format: pdf
+    languages:
+      - es
+    platform: null
+    role: instrument
+    citation: Vanegas-Farf ano, M., Cruz-Fierro,N. & González-Ramírez, M. (2017).
+      Propiedades psicométricas de una escala sobre el materialartístico y su uso
+      para resolver problemas en sesiones de terapiade arte.Evaluar,17(1), 38-49.
+references:
+  primary:
+    - Vanegas-Farf ano, M., Cruz-Fierro,N. & González-Ramírez, M. (2017). Propiedades
+      psicométricas de una escala sobre el materialartístico y su uso para resolver
+      problemas en sesiones de terapiade arte.Evaluar,17(1), 38-49.
+  further: []
+dois:
+  - null
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 1
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Art and Aesthetics/AGH – Actividad Gráfica como Herramienta
+  migrated: '2026-10-22'
+version: 1.0.0
+

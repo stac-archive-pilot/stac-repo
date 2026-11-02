@@ -1,0 +1,50 @@
+# Cloudflare Worker configuration for the STAC API.
+# Secrets are NOT stored here; set them with `npx wrangler secret put <NAME>`:
+#   PSEUDONYM_SECRET          required  HMAC key for visitor hashes, pseudonyms (and download tokens)
+#   TURNSTILE_SECRET          required  Turnstile secret key (messages, access requests)
+#   GITHUB_TOKEN              optional  fine-grained token: Issues RW on INBOX_REPO, Discussions RW on public repo
+#   ADMIN_TOKEN               optional  bearer token for admin scripts (>= 32 random chars)
+#   DOWNLOAD_TOKEN_SECRET     optional  separate key for download links (default: derived from PSEUDONYM_SECRET)
+#   GITHUB_DISCUSSIONS_TOKEN  optional  only if the Discussions repo needs a different token
+
+name = "stac-api"
+main = "src/index.js"
+compatibility_date = "2025-06-01"
+
+# Uncomment to serve the API on a custom domain (recommended: the Cache API
+# only takes effect on custom domains, not on *.workers.dev).
+# routes = [{ pattern = "api.example.org", custom_domain = true }]
+
+[vars]
+# Comma-separated list of browser origins allowed to call the API (exact match).
+ALLOWED_ORIGINS = "https://stac-archive.github.io"
+# Raw events older than this are deleted after being aggregated.
+RAW_RETENTION_DAYS = "90"
+# Private GitHub repo that receives messages and access requests as issues.
+INBOX_REPO = "stac-archive/stac-inbox"
+# Optional: mirror approved public messages to GitHub Discussions (GraphQL node ids).
+# DISCUSSIONS_REPO_ID = "R_xxxxxxxx"
+# DISCUSSIONS_CATEGORY_ID = "DIC_xxxxxxxx"
+# Optional: Cloudflare Access protection of /v1/admin/*.
+# ACCESS_TEAM_DOMAIN = "your-team.cloudflareaccess.com"
+# ACCESS_AUD = "application-audience-tag"
+# Optional: public base URL used in download links (default: request origin).
+# PUBLIC_API_BASE = "https://api.example.org"
+# Optional: lifetime of restricted download links in days (default 7).
+# DOWNLOAD_TTL_DAYS = "7"
+# Optional: stats cache lifetime in seconds (default 300).
+# STATS_CACHE_SECONDS = "300"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "stac-db"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+# Restricted materials. Remove this block if you do not host restricted files;
+# the download endpoint then answers 503 not_configured.
+[[r2_buckets]]
+binding = "RESTRICTED"
+bucket_name = "stac-restricted"
+
+[triggers]
+crons = ["17 3 * * *"]

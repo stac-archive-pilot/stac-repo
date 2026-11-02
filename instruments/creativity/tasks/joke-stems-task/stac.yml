@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: joke-stems-task
+acronym: null
+title: Joke Stems Task
+section: creativity
+subsection: tasks
+kind: task
+summary: This task was developed by Nusbaum et al. (2017), cited below, and has been
+  widely used in recent studies of creative humor production.
+tags:
+  - humor
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: Joke Stems Task_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: Nusbaum, E. C., Silvia, P. J., & Beaty, R. E. (2017). Ha ha? Assessing
+      individual differences in humor production ability. Psychology of Aesthetics,
+      Arts, and Creativity, 11,231-241.
+  - path: Joke Stems Task_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: Nusbaum, E. C., Silvia, P. J., & Beaty, R. E. (2017). Ha ha? Assessing
+      individual differences in humor production ability. Psychology of Aesthetics,
+      Arts, and Creativity, 11,231-241.
+  - path: Joke Stems Task_English_MediaLab.que
+    format: que
+    languages:
+      - en
+    platform: medialab
+    role: instrument
+    citation: Nusbaum, E. C., Silvia, P. J., & Beaty, R. E. (2017). Ha ha? Assessing
+      individual differences in humor production ability. Psychology of Aesthetics,
+      Arts, and Creativity, 11,231-241.
+  - path: Joke_Stems_Task_English_Qualtrics.qsf
+    format: qsf
+    languages:
+      - en
+    platform: qualtrics
+    role: instrument
+    citation: null
+references:
+  primary:
+    - Nusbaum, E. C., Silvia, P. J., & Beaty, R. E. (2017). Ha ha? Assessing individual
+      differences in humor production ability. Psychology of Aesthetics, Arts, and
+      Creativity, 11,231-241.
+  further: []
+dois: []
+administration: See the cited article below for additional directions on administration
+  and scoring.
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Tasks/Joke Stems Task
+  migrated: '2026-10-22'
+version: 1.0.0
+

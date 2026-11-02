@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: cei-curiosity-and-exploration-inventory
+acronym: CEI
+title: Curiosity and Exploration Inventory
+section: personality-and-individual-differences
+subsection: null
+kind: scale
+summary: null
+tags:
+  - curiosity
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: CEI_English_MediaLab.que
+    format: que
+    languages:
+      - en
+    platform: medialab
+    role: instrument
+    citation: null
+  - path: CEI_Spanish.docx
+    format: docx
+    languages:
+      - es
+    platform: null
+    role: instrument
+    citation: 'Vanegas-Farfano, M. & Martínez-Escobedo, E. (2017, November). Curiosity
+      and design education. Paper presented at the SD2017-Systems & Design: From Theory
+      to Product. Valencia, Universitat Politètnica de València. Valencia: España.'
+references:
+  primary:
+    - 'Vanegas-Farfano, M. & Martínez-Escobedo, E. (2017, November). Curiosity and
+      design education. Paper presented at the SD2017-Systems & Design: From Theory
+      to Product. Valencia, Universitat Politètnica de València. Valencia: España.'
+  further: []
+dois:
+  - null
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 2
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Personality and Individual Differences/CEI – Curiosity and Exploration
+    Inventory
+  migrated: '2026-10-22'
+version: 1.0.0
+

@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: hexaco-pi-r-hexaco-personality-inventory-revised
+acronym: HEXACO PI-R
+title: HEXACO Personality Inventory Revised
+section: personality-and-individual-differences
+subsection: null
+kind: scale
+summary: null
+tags:
+  - personality
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: HEXACO PI-R_100_English.doc
+    format: doc
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: null
+  - path: HEXACO PI-R_100_English_MediaLab.que
+    format: que
+    languages:
+      - en
+    platform: medialab
+    role: instrument
+    citation: null
+  - path: HEXACO PI-R_60_English.doc
+    format: doc
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: null
+  - path: HEXACO PI-R_60_English_MediaLab.que
+    format: que
+    languages:
+      - en
+    platform: medialab
+    role: instrument
+    citation: null
+  - path: Hexaco PI-R_100_Scoring.pdf
+    format: pdf
+    languages: []
+    platform: null
+    role: scoring
+    citation: null
+  - path: Hexaco PI-R_60_Scoring.pdf
+    format: pdf
+    languages: []
+    platform: null
+    role: scoring
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: null
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 7
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Personality and Individual Differences/HEXACO PI-R – HEXACO Personality
+    Inventory Revised
+  migrated: '2026-10-22'
+version: 1.0.0
+

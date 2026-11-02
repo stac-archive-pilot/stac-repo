@@ -1,0 +1,113 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: caq-creative-achievement-questionnaire
+acronym: CAQ
+title: Creative Achievement Questionnaire
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: The CAQ is one of the most popular measures of eminent creative achievements.
+  It has been extensively used and translated into several languages. Researchers
+  interested in measuring creative achievements should also consider the ICAA, included
+  elsewhere in this archive.
+tags:
+  - creative-achievement
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: CAQ_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: Carson, S., Peterson, J. B. & Higgins, D. (2005). Reliability, validity
+      and factor structure of the Creative Achievement Questionnaire. Creativity Research
+      Journal, 17, 37-50.
+  - path: CAQ_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: Carson, S., Peterson, J. B. & Higgins, D. (2005). Reliability, validity
+      and factor structure of the Creative Achievement Questionnaire. Creativity Research
+      Journal, 17, 37-50.
+  - path: CAQ_English_MediaLab.que
+    format: que
+    languages:
+      - en
+    platform: medialab
+    role: instrument
+    citation: Carson, S., Peterson, J. B. & Higgins, D. (2005). Reliability, validity
+      and factor structure of the Creative Achievement Questionnaire. Creativity Research
+      Journal, 17, 37-50.
+  - path: CAQ_French.docx
+    format: docx
+    languages:
+      - fr
+    platform: null
+    role: instrument
+    citation: Translated into French and provided by Nicolas B. Verger, Agata Urbanowicz,
+      and Rebecca Shankland.
+  - path: CAQ_French.pdf
+    format: pdf
+    languages:
+      - fr
+    platform: null
+    role: instrument
+    citation: Translated into French and provided by Nicolas B. Verger, Agata Urbanowicz,
+      and Rebecca Shankland.
+  - path: CAQ_German.pdf
+    format: pdf
+    languages:
+      - de
+    platform: null
+    role: instrument
+    citation: 'Form, S., Schlichting, K., & Kaernbach, C. (2017). Mentoring functions:
+      Interpersonal tensions are associated with mentees'' creative achievement. *Psychology
+      of Aesthetics, Creativity, and the Arts, 11*(4), 440-450'
+references:
+  primary:
+    - Carson, S., Peterson, J. B. & Higgins, D. (2005). Reliability, validity and
+      factor structure of the Creative Achievement Questionnaire. Creativity Research
+      Journal, 17, 37-50.
+    - Translated into French and provided by Nicolas B. Verger, Agata Urbanowicz,
+      and Rebecca Shankland.
+    - 'Form, S., Schlichting, K., & Kaernbach, C. (2017). Mentoring functions: Interpersonal
+      tensions are associated with mentees'' creative achievement. *Psychology of
+      Aesthetics, Creativity, and the Arts, 11*(4), 440-450'
+  further:
+    - 'Silvia, P. J., Wigert, B., Reiter-Palmon, R., & Kaufman, J. C. (2012). Assessing
+      creativity with self-report scales: A review and empirical evaluation. Psychology
+      of Aesthetics, Creativity, and the Arts, 6(1), 19–34. https://doi.org/10.1037/a0024071'
+    - 'Wang, C. C., Ho, H. C., Cheng, C. L., & Cheng, Y. Y. (2014). Application of
+      the Rasch model to the measurement of creativity: The creative achievement questionnaire.
+      Creativity Research Journal, 26(1), 62-71.'
+dois:
+  - 10.1037/a0024071
+administration: |-
+  The CAQ uses an uncommon scoring method, with a mix of binary items and multiplicative items. See the Carson et al. (2005) reference below for details on scoring. Researchers could consult these additional psychometric articles and reviews about the CAQ:
+
+  Silvia, P. J., Wigert, B., Reiter-Palmon, R., & Kaufman, J. C. (2012). Assessing creativity with self-report scales: A review and empirical evaluation. Psychology of Aesthetics, Creativity, and the Arts, 6(1), 19–34. https://doi.org/10.1037/a0024071
+
+  Wang, C. C., Ho, H. C., Cheng, C. L., & Cheng, Y. Y. (2014). Application of the Rasch model to the measurement of creativity: The creative achievement questionnaire. Creativity Research Journal, 26(1), 62-71.
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/CAQ – Creative Achievement Questionnaire
+  migrated: '2026-10-22'
+version: 1.0.0
+

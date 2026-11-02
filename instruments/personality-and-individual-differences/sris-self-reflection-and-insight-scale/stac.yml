@@ -1,0 +1,90 @@
+# yaml-language-server: $schema=../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: sris-self-reflection-and-insight-scale
+acronym: SRIS
+title: Self-Reflection and Insight Scale
+section: personality-and-individual-differences
+subsection: null
+kind: scale
+summary: This scale was developed by Grant et al. (2002) as part of the tradition
+  on research on individual differences in self-awareness and private self-consciousness.
+  The original scale and a short form are provided.
+tags:
+  - insight
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: SRIS_English.doc
+    format: doc
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Grant, A. M., Franklin, J., & Langford, P. (2002). The Self-reflection
+      and Insight Scale: A new measure of private self-consciousness. Social Behavior
+      and Personality, 30, 821-836.'
+  - path: SRIS_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Grant, A. M., Franklin, J., & Langford, P. (2002). The Self-reflection
+      and Insight Scale: A new measure of private self-consciousness. Social Behavior
+      and Personality, 30, 821-836.'
+  - path: SRIS_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Grant, A. M., Franklin, J., & Langford, P. (2002). The Self-reflection
+      and Insight Scale: A new measure of private self-consciousness. Social Behavior
+      and Personality, 30, 821-836.'
+  - path: SRIS_Short Form_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: 'Silvia, P. J. (2022). The self-reflection and insight scale: Applying
+      item response theory to craft an efficient short form. Current Psychology, 41(12),
+      8635-8645.'
+references:
+  primary:
+    - 'Grant, A. M., Franklin, J., & Langford, P. (2002). The Self-reflection and
+      Insight Scale: A new measure of private self-consciousness. Social Behavior
+      and Personality, 30, 821-836.'
+    - 'Silvia, P. J. (2022). The self-reflection and insight scale: Applying item
+      response theory to craft an efficient short form. Current Psychology, 41(12),
+      8635-8645.'
+  further: []
+dois: []
+administration: |-
+  The original scale contains two subscales: self-reflection and insight.
+
+  Grant, A. M., Franklin, J., & Langford, P. (2002). The Self-reflection and Insight Scale: A new measure of private self-consciousness. Social Behavior and Personality, 30, 821-836.
+
+  A 12-item short form was recently developed that provides psychometric details on both the original and short versions of the scale:
+
+  Silvia, P. J. (2022). The self-reflection and insight scale: Applying item response theory to craft an efficient short form. Current Psychology, 41(12), 8635-8645.
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Personality and Individual Differences/SRIS – Self-Reflection and Insight
+    Scale
+  migrated: '2026-10-22'
+version: 1.0.0
+

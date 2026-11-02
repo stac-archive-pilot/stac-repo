@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: socsc-sources-of-creative-self-concept
+acronym: SoCSC
+title: Sources of Creative Self-concept
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: 'It assesses experiences with Bandura''s four sources of information of self-efficacy.
+  The scale comes in two flavors: - The main SoCSC includes six items per source and
+  asks if specific experiences apply. - The SoCSC-V includes two items per sources
+  and asks how often people have made positive and negative experiences with each
+  source.'
+tags:
+  - creative-self
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: SoCSC-V_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: null
+  - path: SoCSC-V_German.docx
+    format: docx
+    languages:
+      - de
+    platform: null
+    role: instrument
+    citation: null
+  - path: SoCSC_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: null
+  - path: SoCSC_German.docx
+    format: docx
+    languages:
+      - de
+    platform: null
+    role: instrument
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: Information on administration and scoring is provided in the scale
+  doc.
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/SoCSC  -Sources of Creative Self-concept
+  migrated: '2026-10-22'
+version: 1.0.0
+

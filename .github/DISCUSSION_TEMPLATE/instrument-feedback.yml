@@ -1,0 +1,56 @@
+title: "[Feedback]: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share experiences with a STAC measure: what worked, what did not, practical tips for administration, observations about item behaviour in your sample. This helps others decide whether the measure fits their study.
+
+        For clear errors (wrong items, broken files) please open an [error report](https://github.com/stac-archive/stac/issues/new?template=03-error-report.yml) so it can be tracked and fixed.
+
+  - type: input
+    id: instrument
+    attributes:
+      label: "Instrument"
+      placeholder: "e.g. AReA (Aesthetic Responsiveness Assessment)"
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: "Language version and file you used"
+      placeholder: "e.g. German, AReA_English_German.pdf"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: feedback_type
+    attributes:
+      label: "Type of feedback"
+      multiple: true
+      options:
+        - "Administration tips"
+        - "Scoring experience"
+        - "Item behaviour or psychometrics in my sample"
+        - "Survey platform experience"
+        - "Documentation could be clearer"
+        - "General experience"
+    validations:
+      required: true
+
+  - type: textarea
+    id: feedback
+    attributes:
+      label: "Your feedback"
+      placeholder: "e.g. In an online student sample (N = 250) the reverse-keyed items 4 and 9 loaded weakly; adding an attention check before the scale helped."
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: "Context"
+      description: "Optional: sample, setting (lab, online, classroom), platform."
+    validations:
+      required: false

@@ -1,0 +1,52 @@
+# yaml-language-server: $schema=../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: aers-art-engagement-reflection-scale
+acronym: AERS
+title: Art Engagement Reflection Scale
+section: art-and-aesthetics
+subsection: null
+kind: scale
+summary: This scale is currently unpublished.
+tags:
+  - art
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: AERS_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: null
+  - path: AERS_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: The file contains information on using and scoring the scale.
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Art and Aesthetics/AERS - Art Engagement Reflection Scale
+  migrated: '2026-10-22'
+version: 1.0.0
+

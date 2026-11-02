@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: cartoon-captions
+acronym: null
+title: Cartoon Captions
+section: creativity
+subsection: tasks
+kind: task
+summary: Asking people to write funny captions for single-panel cartoons is one of
+  the oldest and most widely-used tasks for measuring creative humor production. These
+  files (and the MediaLab file) are from Nusbaum et al. (2017), cited below, which
+  provides instructions and guidance for administration and scoring.
+tags:
+  - humor
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: Cartoon Captions_English_MediaLab.que
+    format: que
+    languages:
+      - en
+    platform: medialab
+    role: instrument
+    citation: null
+  - path: Cartoon1.jpg
+    format: jpg
+    languages: []
+    platform: null
+    role: stimuli
+    citation: null
+  - path: Cartoon14.jpg
+    format: jpg
+    languages: []
+    platform: null
+    role: stimuli
+    citation: null
+  - path: Cartoon2.jpg
+    format: jpg
+    languages: []
+    platform: null
+    role: stimuli
+    citation: null
+  - path: Cartoon3.jpg
+    format: jpg
+    languages: []
+    platform: null
+    role: stimuli
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: See the citation below for directions.
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 5
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Tasks/Cartoon Captions
+  migrated: '2026-10-22'
+version: 1.0.0
+

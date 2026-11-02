@@ -1,0 +1,113 @@
+# Attaches per-instrument zip bundles to a GitHub release.
+#
+# Triggered when a release is published (or manually for an existing tag).
+# scripts/08_bundle_release.R writes the bundles into _release/; every file
+# there (zips, checksums, a manifest) is uploaded as a release asset.
+# Release asset download_count is the durable per-bundle download counter
+# that 05_fetch_stats.R reads.
+#
+# Tip: enable the Zenodo GitHub integration for this repository so that every
+# release also receives a DOI and a long-term copy outside GitHub.
+
+name: release-bundles
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing release tag to (re)build bundles for"
+        required: true
+        type: string
+      overwrite:
+        description: "Replace assets that already exist (resets their download counts)"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-bundles-${{ github.event.release.tag_name || inputs.tag }}
+  cancel-in-progress: false
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+    env:
+      STAC_RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
+    steps:
+      - name: Check out the tagged commit
+        uses: actions/checkout@v4
+        with:
+          ref: refs/tags/${{ env.STAC_RELEASE_TAG }}
+          persist-credentials: false
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+          use-public-rspm: true
+
+      - name: Install R packages
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::dplyr
+            any::purrr
+            any::tidyr
+            any::stringr
+            any::jsonlite
+            any::yaml
+            any::glue
+            any::fs
+            any::readr
+            any::tibble
+            any::digest
+            any::cli
+            any::lubridate
+          cache-version: 1
+
+      - name: Build bundles
+        run: Rscript scripts/08_bundle_release.R
+
+      - name: Upload bundles to the release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          OVERWRITE: ${{ inputs.overwrite || 'false' }}
+        run: |
+          shopt -s nullglob
+          files=(_release/*)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "::error::08_bundle_release.R produced no files in _release/."
+            exit 1
+          fi
+          if [ "$OVERWRITE" = "true" ]; then
+            echo "::warning::Overwriting existing assets; their download counts restart at zero."
+            gh release upload "$STAC_RELEASE_TAG" "${files[@]}" --clobber
+            exit 0
+          fi
+          # Default: never replace an existing asset, because replacing it
+          # resets download_count, the archive's durable download statistic.
+          existing="$(gh release view "$STAC_RELEASE_TAG" --json assets --jq '.assets[].name')"
+          upload=()
+          for f in "${files[@]}"; do
+            if grep -Fxq "$(basename "$f")" <<< "$existing"; then
+              echo "Skipping existing asset $(basename "$f")"
+            else
+              upload+=("$f")
+            fi
+          done
+          if [ ${#upload[@]} -eq 0 ]; then
+            echo "All assets already present."
+            exit 0
+          fi
+          echo "Uploading ${#upload[@]} files to release $STAC_RELEASE_TAG"
+          gh release upload "$STAC_RELEASE_TAG" "${upload[@]}"

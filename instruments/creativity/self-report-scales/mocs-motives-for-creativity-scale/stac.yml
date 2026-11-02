@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: mocs-motives-for-creativity-scale
+acronym: MoCS
+title: Motives for Creativity Scale
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: This folder contains materials related to the Motives for Creativity Scale
+  (MoCS), a questionnaire measuring motives for engaging in creative behavior, each
+  assessed with two items. The original MoCS included nine motives (Benedek et al.,
+  2020). A tenth motive (passion) was introduced in later work (Benedek et al., 2025)
+  and was found to be particularly relevant among creative professionals. Items are
+  available in English and German.
+tags:
+  - creative-behavior
+  - motivation
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: MoCS_English_German.docx
+    format: docx
+    languages:
+      - en
+      - de
+    platform: null
+    role: instrument
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: Instructions for administering and scoring the scale are provided
+  in the file.
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/MoCS - Motives for Creativity Scale
+  migrated: '2026-10-22'
+version: 1.0.0
+

@@ -1,0 +1,114 @@
+# STAC taxonomy: sections, kinds, languages, access tiers, tag dictionary
+# Edited by moderators. Used by the R pipeline and shipped to the site.
+
+sections:
+  art-and-aesthetics:
+    label: Art and Aesthetics
+    osf: Art and Aesthetics
+    blurb: Engagement with, knowledge of and responsiveness to the arts and aesthetic experiences.
+  creativity:
+    label: Creativity
+    osf: Creativity
+    blurb: Self-report scales of creative behavior, self and humor, plus performance tasks and scoring methods.
+  personality-and-individual-differences:
+    label: Personality and Individual Differences
+    osf: Personality and Individual Differences
+    blurb: Open measures of personality, well-being, affect, stress and verbal fluency used alongside creativity research.
+
+subsections:
+  self-report-scales: Self-Report Scales
+  tasks: Tasks
+  methods-and-scoring: Methods and Scoring
+
+kinds:
+  scale: Self-report scale
+  task: Performance task
+  method: Method / scoring guideline
+
+# ISO 639-1 codes; names as they appear in OSF file names
+languages:
+  en: {label: English, tokens: [english, englsih, eng]}
+  de: {label: German, tokens: [german, deutsch, ger]}
+  fr: {label: French, tokens: [french, francais]}
+  es: {label: Spanish, tokens: [spanish, espanol]}
+  pl: {label: Polish, tokens: [polish]}
+  fa: {label: Farsi, tokens: [farsi, persian]}
+  nl: {label: Dutch, tokens: [dutch]}
+  ko: {label: Korean, tokens: [korean]}
+  ja: {label: Japanese, tokens: [japanese]}
+  ar: {label: Arabic, tokens: [arabic]}
+  ru: {label: Russian, tokens: [russian]}
+  tr: {label: Turkish, tokens: [turkish]}
+  it: {label: Italian, tokens: [italian]}
+  pt: {label: Portuguese, tokens: [portuguese]}
+  zh: {label: Chinese, tokens: [chinese, mandarin]}
+  he: {label: Hebrew, tokens: [hebrew]}
+
+# Access tiers drive the badges on the site. Only "open" and
+# "academic-noncommercial" may be committed to the public repository;
+# everything stricter is served through the access-request backend.
+access_tiers:
+  open:
+    label: Free public use
+    short: Open
+    public_repo: true
+    description: Free to use, adapt and share for any purpose with attribution.
+  academic-noncommercial:
+    label: Free for academic and non-commercial use
+    short: Academic / non-commercial
+    public_repo: true
+    description: Free for research and teaching. Commercial use needs the authors' permission.
+  research-only:
+    label: Research use only
+    short: Research only
+    public_repo: true
+    description: Use restricted to research purposes; no clinical, diagnostic or commercial use.
+  commercial-with-permission:
+    label: Commercial use only with permission
+    short: Commercial with permission
+    public_repo: true
+    description: Academic use free; any commercial use requires written permission from the rights holder.
+  permission-required:
+    label: Permission required
+    short: Permission required
+    public_repo: false
+    description: Files are released by the moderators after an access request.
+  restricted:
+    label: Restricted
+    short: Restricted
+    public_repo: false
+    description: Listed for discoverability only; materials are held by the rights holder.
+
+# Auto-tagging dictionary (case-insensitive regex on title + overview).
+# These tags are SUGGESTIONS written into stac.yml by the bootstrap script and
+# marked tags_curated: false until a curator has reviewed them.
+tag_rules:
+  aesthetics: "aesthetic"
+  art: "\\bart\\b|artistic|arts\\b"
+  music: "music|musical|auditory"
+  imagery: "imager|imagination|imaginative"
+  humor: "humou?r|joke|funny|cartoon|caption"
+  creative-achievement: "achievement"
+  creative-behavior: "behavio|activit"
+  creative-domains: "domains? of creativity|across domains|domain-specific"
+  creative-personality: "creative personality|creative trait"
+  insight: "insight|self-reflection"
+  creative-self: "self-concept|self-efficacy|creative self|self perception|identity"
+  divergent-thinking: "divergent|alternate uses|alternative uses|\\baut\\b|uses task"
+  associative-thinking: "associat|remote|forward flow|semantic"
+  metaphor: "metaphor|analog"
+  curiosity: "curiosity|exploration"
+  motivation: "motiv|need for|goal"
+  intuition: "intuition"
+  personality: "personality|big five|hexaco|trait"
+  well-being: "hope|positive emotion|pleasure|well-being|wellbeing"
+  affect: "affect|emotion"
+  mental-health: "depression|anxiety|stress|dissociat|insomnia|hypomani"
+  cognition: "cognition|cognitive|fluency|problem solving"
+  magic: "magic|legerdemain"
+  product-design: "product aesthetic"
+  scientific-creativity: "scientific"
+  storytelling: "story|narrative"
+  youth: "youth|adolescent|children"
+  myths-beliefs: "myth|belief|dogmat"
+  scoring-method: "scoring guideline|subjective scoring|semdis|semantic distance|be creative"

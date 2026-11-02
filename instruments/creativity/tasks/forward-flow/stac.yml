@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: forward-flow
+acronym: null
+title: Forward Flow
+section: creativity
+subsection: tasks
+kind: task
+summary: Fward Floorw is a Chained Free Association Task, where participants generate
+  chained associates (I.e., a word that comes to mind as related to a previous word)
+  from a specific cue word. Computational semantic spaces are used to compute the
+  semantic distance between each pair of words. The average over these scores is the
+  measure Forward Flow, which empirically quantifies he breadth of associative search
+  of a person. This measure has been shown to be significantly related to divergent
+  thinking.
+tags:
+  - divergent-thinking
+  - associative-thinking
+  - scoring-method
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: Beaty, Zeitlen, Baker, and Kenett, 2021.pdf
+    format: pdf
+    languages: []
+    platform: null
+    role: reference
+    citation: null
+  - path: FF.qsf
+    format: qsf
+    languages: []
+    platform: qualtrics
+    role: instrument
+    citation: null
+  - path: Gray et al., 2019.pdf
+    format: pdf
+    languages: []
+    platform: null
+    role: reference
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: Scoring is conducted using an R code provided in this OSF repository
+  - https://osf.io/7p5mt/overview
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Tasks/Forward Flow
+  migrated: '2026-10-22'
+version: 1.0.0
+

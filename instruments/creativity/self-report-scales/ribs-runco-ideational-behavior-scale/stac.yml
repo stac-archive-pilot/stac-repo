@@ -1,0 +1,82 @@
+# yaml-language-server: $schema=../../../../schema/stac-instrument.schema.json
+# STAC instrument metadata. Human-readable docs stay in README.md;
+# this file is the machine-readable source for the catalog and badges.
+
+schema_version: 1
+id: ribs-runco-ideational-behavior-scale
+acronym: RIBS
+title: Runco Ideational Behavior Scale
+section: creativity
+subsection: self-report-scales
+kind: scale
+summary: The RIBS is a widely-used self-report measure of ideational behavior. Originally
+  developed in English, it has since been translated into many, many languages. This
+  archive contains English, French, and German versions.
+tags:
+  - creative-behavior
+tags_curated: false
+access:
+  tier: academic-noncommercial
+  statement: All files within this folder are free to use for academic and non-commercial
+    purposes.
+  source: readme
+  verified: false
+files:
+  - path: RIBS_English.docx
+    format: docx
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: null
+  - path: RIBS_English.pdf
+    format: pdf
+    languages:
+      - en
+    platform: null
+    role: instrument
+    citation: null
+  - path: RIBS_French.docx
+    format: docx
+    languages:
+      - fr
+    platform: null
+    role: instrument
+    citation: null
+  - path: RIBS_French.pdf
+    format: pdf
+    languages:
+      - fr
+    platform: null
+    role: instrument
+    citation: null
+  - path: RIBS_German.docx
+    format: docx
+    languages:
+      - de
+    platform: null
+    role: instrument
+    citation: null
+  - path: RIBS_German.pdf
+    format: pdf
+    languages:
+      - de
+    platform: null
+    role: instrument
+    citation: null
+references:
+  primary: []
+  further: []
+dois: []
+administration: See the references below for details.
+contributors: []
+status:
+  stage: migrated-draft
+  readme_present: true
+  readme_na_fields: 0
+provenance:
+  osf_project: https://osf.io/4s9p6
+  osf_path: Creativity/Self-Report Scales/RIBS – Runco Ideational Behavior Scale
+  migrated: '2026-10-22'
+version: 1.0.0
+
