@@ -104,7 +104,7 @@ jobs:
       STAC_REPORT_DIR: _reports
     steps:
       - name: Check out default branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
 
@@ -269,7 +269,7 @@ jobs:
         run: gh api "repos/$REPO/issues/comments/$COMMENT_ID/reactions" -f content=rocket > /dev/null
 
       - name: Check out default branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Parse issue form
         id: parse
@@ -353,7 +353,7 @@ jobs:
 
       - name: Create draft pull request
         id: cpr
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.INTAKE_TOKEN || github.token }}
           branch: intake/issue-${{ github.event.issue.number }}
