@@ -37,7 +37,7 @@ jobs:
       R_KEEP_PKG_SOURCE: "no"
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
 
@@ -100,7 +100,7 @@ jobs:
 
       - name: Upload validation report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: validation-report
           path: ${{ env.STAC_REPORT_DIR }}/
